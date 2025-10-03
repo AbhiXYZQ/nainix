@@ -345,6 +345,7 @@
 .testimonials {
     background: #000;
     text-align: center;
+    margin: 1.5rem;
 }
 
 .testimonial-grid {
@@ -352,7 +353,7 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
     max-width: 1200px;
-    margin: 2rem;
+    margin: 1.5rem auto;
 }
 
 .testimonial-card {
