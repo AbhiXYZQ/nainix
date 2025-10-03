@@ -253,13 +253,14 @@
 
 /* Common Section Styling */
 .welcome, .iconCard, .projects, .portfolio, .aboutMe, .mission, .values, .data, .service, .benefits, .contact, .gallery {
-    padding: 3rem 1.5rem;
-    text-align: center;
+    padding: 3rem 3rem;
+    text-align: center
 }
 
 .welcome, .iconCard, .mission, .data {
     background: #090909;
-    border-bottom: 1px solid #fff;
+    border-bottom: 0.1px solid #3f3f3f;
+    border-top: 0.1px solid #3f3f3f;
 }
 
 .our {
@@ -277,7 +278,7 @@
 .logoLine .tech-icon {
     width: 50px;
     height: 50px;
-    margin: 0 0.5rem;
+    margin: 2rem 1rem 0 1rem;
     vertical-align: middle;
 }
 
