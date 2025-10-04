@@ -32,6 +32,11 @@
     background: rgba(0, 0, 0, 0.9);
 }
 
+.pageName {
+    color: #00ff03 !important;
+    font-weight: bold;
+}
+
 .logo {
     display: flex;
     align-items: center;
