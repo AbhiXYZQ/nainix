@@ -641,6 +641,10 @@
 /* =========== Blog Page Styles ============ */
 /* ========================================= */
 
+.blog {
+    margin: 2rem;
+}
+
 .blog-post-container {
     max-width: 800px;
     margin: 2rem auto;
