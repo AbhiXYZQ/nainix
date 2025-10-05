@@ -70,7 +70,7 @@
 
 .nav-menu {
     list-style: none;
-    display: flex;
+    display: flex; /* Default for desktop */
     align-items: center;
     margin: 0;
 }
@@ -159,40 +159,6 @@
 .nav-toggle.active span:nth-child(1) { top: 8px; transform: rotate(135deg); }
 .nav-toggle.active span:nth-child(2) { opacity: 0; left: -60px; }
 .nav-toggle.active span:nth-child(3) { top: 8px; transform: rotate(-135deg); }
-
-/* Media Queries for Navigation */
-@media (max-width: 768px) {
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        padding: 1rem 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .nav-menu li {
-        margin: 0.8rem 0;
-    }
-    
-    .nav-toggle {
-        display: block;
-    }
-}
-
-/* Fix for desktop nav disappearing */
-@media (min-width: 769px) {
-    .nav-menu {
-        display: flex !important;
-    }
-}
 
 
 /* Hero Section */
@@ -296,18 +262,29 @@
     margin: 2rem auto 0;
 }
 
-.project-card, .gallery-item {
+/* NEW: Base class for cards */
+.card-base {
     background: #1d1d1d;
     border: 1px solid #2a2a2a;
     border-radius: 15px;
     padding: 1.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-base:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 255, 3, 0.15);
+}
+
+/* UPDATED: Simplified project-card and gallery-item */
+.project-card {
     text-align: left;
 }
 
-.project-card:hover, .gallery-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 255, 3, 0.15);
+.gallery-item p {
+    font-size: 0.9rem;
+    color: #c5c5c5;
+    text-align: center;
 }
 
 .project-card img, .gallery-item img {
@@ -339,12 +316,6 @@
 
 .cardPara1:hover {
     text-decoration: underline;
-}
-
-.gallery-item p {
-    font-size: 0.9rem;
-    color: #c5c5c5;
-    text-align: center;
 }
 
 /* Testimonials Section */
@@ -452,7 +423,6 @@
     font-size: 0.9rem;
     color: #bababa;
 }
-
 
 /* Services Section */
 .cardArea {
@@ -628,6 +598,30 @@
 
 /* Media Queries for Layout */
 @media (max-width: 768px) {
+    .nav-menu {
+        display: none; /* Hide on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 1rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-menu.active {
+        display: flex; /* Show when toggled */
+    }
+
+    .nav-menu li {
+        margin: 0.8rem 0;
+    }
+    
+    .nav-toggle {
+        display: block;
+    }
+
     .contact-grid {
         grid-template-columns: 1fr;
     }
