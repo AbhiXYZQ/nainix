@@ -98,50 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ========================================= //
-// ========= Typewriter Effect Script ======== //
-// ========================================= //
-
-document.addEventListener("DOMContentLoaded", function() {
-    const typewriterElement = document.querySelector(".typewriter-text");
-    const cursorElement = document.querySelector(".cursor");
-
-    const textArray = ['"Your Thinking, My Expertise"', "Let's Collaborate."];
-    let textArrayIndex = 0;
-    let charIndex = 0;
-
-    function type() {
-        if (charIndex < textArray[textArrayIndex].length) {
-            if(cursorElement) cursorElement.classList.add("typing");
-            if(typewriterElement) typewriterElement.textContent += textArray[textArrayIndex].charAt(charIndex);
-            charIndex++;
-            setTimeout(type, 100); // Typing speed
-        } else {
-            if(cursorElement) cursorElement.classList.remove("typing");
-            setTimeout(erase, 2000); // Pause before erasing
-        }
-    }
-
-    function erase() {
-        if (charIndex > 0) {
-            if(cursorElement) cursorElement.classList.add("typing");
-            if(typewriterElement) typewriterElement.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
-            charIndex--;
-            setTimeout(erase, 50); // Erasing speed
-        } else {
-            if(cursorElement) cursorElement.classList.remove("typing");
-            textArrayIndex++;
-            if (textArrayIndex >= textArray.length) textArrayIndex = 0;
-            setTimeout(type, 1200); // Pause before typing next string
-        }
-    }
-    
-    // Start the effect only if the element exists on the page
-    if (typewriterElement) {
-        type();
-    }
-});
-
-// ========================================= //
 // ========= Custom Cursor Script ========== //
 // ========================================= //
 
