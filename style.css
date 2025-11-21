@@ -805,7 +805,7 @@
 }
 
 /* Media Queries */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .nav-menu {
         display: none;
         flex-direction: column;
@@ -836,5 +836,14 @@
 
     .head1, .head2 {
         font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .cursor-dot, .cursor-circle {
+        display: none;
+    }
+    * {
+        cursor: auto; /* Default cursor wapas layen */
     }
 }
