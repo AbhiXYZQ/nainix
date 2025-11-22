@@ -107,25 +107,19 @@
                  <span style="color: #fff;">Find out why you are not ranking on Google.</span>
              </p>
      
-             <form action="https://formspree.io/f/xpwrroeq" method="POST" class="audit-form">
-                 <div class="input-group">
-                     <div class="icon-input">
-                         <span class="input-icon">🌐</span>
-                         <input type="hidden" name="_next" value="https://nainix.xyz/thankyou.html">
-                         <input type="url" name="website_url" placeholder="Enter your website URL (e.g., www.yoursite.com)" required class="audit-input">
-                     </div>
-                     <div class="icon-input">
-                         <span class="input-icon">📧</span>
-                         <input type="email" name="email" placeholder="Your Email Address" required class="audit-input">
-                     </div>
-                 </div>
-                 <input type="hidden" name="_subject" value="New Free Audit Request!">
-                 
-                 <button type="submit" class="audit-btn">
-                     <span class="btn-text">SCAN MY WEBSITE NOW</span>
-                     <div class="scan-line"></div>
-                 </button>
-             </form>
+        <form id="my-form" action="https://formspree.io/f/xpwrroeq" method="POST" class="audit-form">
+    
+    <div class="input-group">
+       ...
+    </div>
+
+    <button type="submit" class="audit-btn" id="my-form-status">
+        <span class="btn-text">SCAN MY WEBSITE NOW</span>
+        <div class="scan-line"></div>
+    </button>
+    
+    <p id="my-form-status-text"></p>
+</form>
      
              <p class="audit-note">🔒 100% Free & Secure. No Spam.</p>
          </div>

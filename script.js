@@ -197,3 +197,61 @@ function updateCost() {
 document.addEventListener('DOMContentLoaded', () => {
     updateCost();
 });
+
+// ========================================= //
+// ========= AJAX FORM SUBMISSION ========== //
+// ========================================= //
+
+document.addEventListener("DOMContentLoaded", function() {
+    var form = document.getElementById("my-form");
+    
+    async function handleSubmit(event) {
+        event.preventDefault(); // Browser ko form submit karne se roko
+        
+        var status = document.getElementById("my-form-status");
+        var btnText = form.querySelector(".btn-text");
+        var data = new FormData(event.target);
+
+        // Button Text Change (Loading effect)
+        var originalText = btnText.innerText;
+        btnText.innerText = "SCANNING...";
+        status.style.opacity = "0.7";
+        status.style.pointerEvents = "none"; // Click disable karein
+
+        fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json' // Formspree ko bolo JSON return kare, HTML page nahi
+            }
+        }).then(response => {
+            if (response.ok) {
+                // SUCCESS: Ab hum manually redirect karenge
+                window.location.href = "thankyou.html"; 
+            } else {
+                // ERROR
+                response.json().then(data => {
+                    if (Object.hasOwn(data, 'errors')) {
+                        alert(data["errors"].map(error => error["message"]).join(", "));
+                    } else {
+                        alert("Oops! There was a problem submitting your form");
+                    }
+                });
+                // Button Reset
+                btnText.innerText = originalText;
+                status.style.opacity = "1";
+                status.style.pointerEvents = "auto";
+            }
+        }).catch(error => {
+            alert("Oops! There was a problem submitting your form");
+            // Button Reset
+            btnText.innerText = originalText;
+            status.style.opacity = "1";
+            status.style.pointerEvents = "auto";
+        });
+    }
+
+    if(form) {
+        form.addEventListener("submit", handleSubmit);
+    }
+});
