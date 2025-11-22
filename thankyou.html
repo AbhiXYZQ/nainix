@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Nainix Dev</title>
+    <link rel="icon" href="/image/nainixDevBlackLogo.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Sirf is page ke liye thoda extra style center karne ke liye */
+        .thankyou-section {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        .check-icon {
+            font-size: 5rem;
+            color: var(--theme-color);
+            margin-bottom: 1rem;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="body">
+    <div class="cursor-dot"></div>
+    <div class="cursor-circle"></div>
+    <nav class="nav">
+        <div class="logo">
+            <img src="image/nainixDevLogo.png" alt="Nainix Dev Logo" class="logo-img">
+            <span class="head1">Nainix</span>
+            <span class="head2">Dev</span>
+        </div>
+    </nav>
+
+    <section class="thankyou-section">
+        <div class="check-icon">✔</div>
+        <h2>
+            <span class="our">Message </span>
+            <span class="achiv">Received!</span>
+        </h2>
+        <p class="cT3" style="max-width: 500px;">
+            Thanks for reaching out. We have received your details and will get back to you within 24 hours.
+        </p>
+        <a href="index.html"><button class="btn2">Back to Home</button></a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>© 2025 Nainix Dev. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

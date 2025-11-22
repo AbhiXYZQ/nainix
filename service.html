@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explore Nainix Dev's services: web development, mobile apps, UI/UX design, and more.">
     <title>Nainix Dev: Services</title>
-    <link rel="icon" href="nainixDevBlackLogo.png" type="image/png">
+    <link rel="icon" href="/image/nainixDevBlackLogo.png" type="image/png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="body">
@@ -13,7 +13,7 @@
     <div class="cursor-circle"></div>
     <nav class="nav">
         <div class="logo">
-            <img src="nainixDevLogo.png" alt="Nainix Dev Logo" class="logo-img">
+            <img src="image/nainixDevLogo.png" alt="Nainix Dev Logo" class="logo-img">
             <span class="head1">Nainix</span>
             <span class="head2">Dev</span>
         </div>
@@ -86,6 +86,59 @@
                 <h3 class="cardHead"># AI Integration</h3>
                 <p class="cardPara">AI-powered chatbots, recommendation systems, and automation tools for smarter solutions.</p>
                 <a href="contact.html" class="cardPara2">Learn More →</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="estimator">
+        <h2>
+            <span class="our">Calculate </span>
+            <span class="achiv">Your Cost</span>
+        </h2>
+        <p class="cT3">Get an approximate estimate for your dream project instantly.</p>
+    
+        <div class="estimator-container card-base">
+            <div class="est-group">
+                <h3 class="est-label">1. Select Project Type</h3>
+                <div class="type-grid">
+                    <div class="type-card active" data-value="5000" onclick="selectType(this)">
+                        <div class="icon">💼</div>
+                        <span>Portfolio</span>
+                    </div>
+                    <div class="type-card" data-value="12000" onclick="selectType(this)">
+                        <div class="icon">🏢</div>
+                        <span>Business</span>
+                    </div>
+                    <div class="type-card" data-value="25000" onclick="selectType(this)">
+                        <div class="icon">🛒</div>
+                        <span>E-commerce</span>
+                    </div>
+                </div>
+            </div>
+    
+                    <h3 class="est-label">2. Number of Pages: <span id="pageCountDisplay" class="highlight-text">5</span></h3>
+                <div class="range-container">
+                    <input type="range" min="1" max="20" value="5" class="neon-slider" id="pageSlider" oninput="updateCost()">
+                </div>
+            </div>
+    
+            <div class="est-group">
+                <h3 class="est-label">3. Extra Features</h3>
+                <div class="addon-grid">
+                    <div class="addon-btn" data-cost="3000" onclick="toggleAddon(this)">Dark Mode</div>
+                    <div class="addon-btn" data-cost="5000" onclick="toggleAddon(this)">SEO Setup</div>
+                    <div class="addon-btn" data-cost="8000" onclick="toggleAddon(this)">Admin Panel</div>
+                    <div class="addon-btn" data-cost="4000" onclick="toggleAddon(this)">Animation</div>
+                </div>
+            </div>
+    
+            <div class="divider"></div>
+    
+            <div class="total-area">
+                <p>Estimated Cost:</p>
+                <h2 class="final-price">₹<span id="totalPrice">7,500</span></h2>
+                <a href="contact.html" class="btn2" style="display:inline-block; text-decoration:none; margin-top:10px;">Book This Project</a>
             </div>
         </div>
     </section>

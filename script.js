@@ -143,3 +143,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// ========================================= //
+// ========= PRICE ESTIMATOR LOGIC ========= //
+// ========================================= //
+
+let currentBasePrice = 5000; // Default Portfolio Price
+let pagePrice = 500; // Cost per page
+let addonTotal = 0;
+
+function selectType(element) {
+    // Remove active class from all cards
+    document.querySelectorAll('.type-card').forEach(card => {
+        card.classList.remove('active');
+    });
+    
+    // Add active class to clicked card
+    element.classList.add('active');
+    
+    // Update base price
+    currentBasePrice = parseInt(element.getAttribute('data-value'));
+    updateCost();
+}
+
+function toggleAddon(element) {
+    element.classList.toggle('selected');
+    updateCost();
+}
+
+function updateCost() {
+    // 1. Get Page Count
+    const pageCount = parseInt(document.getElementById('pageSlider').value);
+    document.getElementById('pageCountDisplay').innerText = pageCount;
+    
+    // 2. Calculate Addons
+    addonTotal = 0;
+    document.querySelectorAll('.addon-btn.selected').forEach(btn => {
+        addonTotal += parseInt(btn.getAttribute('data-cost'));
+    });
+    
+    // 3. Total Calculation
+    // Logic: Base Price + (Pages * Page Price) + Addons
+    const total = currentBasePrice + (pageCount * pagePrice) + addonTotal;
+    
+    // 4. Update Display with Animation
+    const priceDisplay = document.getElementById('totalPrice');
+    
+    // Simple format for currency
+    priceDisplay.innerText = total.toLocaleString('en-IN');
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', () => {
+    updateCost();
+});
