@@ -1081,7 +1081,20 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 1.2rem;
-    filter: grayscale(1);
+    
+    /* --- MAGIC CODE START (Isse Emoji Green banega) --- */
+    color: transparent;  /* Asli Emoji ka color gayab */
+    text-shadow: 0 0 0 var(--theme-color); /* Shadow ko solid Green bana diya */
+    filter: drop-shadow(0 0 2px rgba(0, 255, 6, 0.5)); /* Thoda sa Neon Glow */
+    /* --- MAGIC CODE END --- */
+    
+    transition: all 0.3s ease;
+}
+
+/* Hover karne par icon thoda aur chamkega */
+.icon-input:hover .input-icon {
+    filter: drop-shadow(0 0 5px var(--theme-color));
+    transform: translateY(-50%) scale(1.1);
 }
 
 .audit-input {

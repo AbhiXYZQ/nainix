@@ -60,29 +60,40 @@
                 <h3>Reach Out</h3>
                 <p><strong>Email:</strong> nainixdev@gmail.com</p>
                 <p><strong>Address:</strong> Hajipur, Bihar, India 844101</p>
+                <br>
+                <p style="color: #666; font-size: 0.9rem;">We typically reply within 24 hours.</p>
             </div>
+            
             <div class="contact-form">
                 <h3>Send a Message</h3>
-                <form id="my-form" action="https://formspree.io/f/xpwrroeq" method="POST">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Enter Your Name" class="textBox" required>
+                <form id="my-form" action="https://formspree.io/f/xpwrroeq" method="POST" style="margin-top: 1.5rem;">
                     
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="Enter Your Email" class="textBox" required>
-                    
-                    <label for="phone">Phone No.:</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Enter 10-digit phone number" pattern="[0-9]{10}" class="textBox" required>
-                    
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" placeholder="How can I help you?" class="textBox" rows="5" required></textarea>
-                    
-                    <div class="formButtonRow">
-                        <button type="reset" class="reset">Reset</button>
-                        <button type="submit" class="submit">
-                           <span class="btn-text">Submit</span>
-                        </button>
-                        <p id="my-form-status"></p>
+                    <div class="icon-input" style="margin-bottom: 1rem;">
+                        <span class="input-icon">👤</span>
+                        <input type="text" name="name" placeholder="Your Name" class="audit-input" required>
                     </div>
+                    
+                    <div class="icon-input" style="margin-bottom: 1rem;">
+                        <span class="input-icon">✉</span>
+                        <input type="email" name="email" placeholder="Your Email Address" class="audit-input" required>
+                    </div>
+                    
+                    <div class="icon-input" style="margin-bottom: 1rem;">
+                        <span class="input-icon">📞</span>
+                        <input type="tel" name="phone" placeholder="Phone Number (10 digits)" pattern="[0-9]{10}" class="audit-input" required>
+                    </div>
+                    
+                    <div class="icon-input" style="margin-bottom: 1.5rem;">
+                        <span class="input-icon" style="top: 20px; transform: none;">💬</span>
+                        <textarea name="message" placeholder="How can we help you?" class="audit-input" rows="5" style="padding-top: 1rem; resize: vertical;" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="audit-btn" id="my-form-status">
+                        <span class="btn-text">SEND MESSAGE</span>
+                        <div class="scan-line"></div>
+                    </button>
+                    
+                    <p id="my-form-status-text" style="margin-top: 10px; color: #00ff06; font-size: 0.9rem;"></p>
                 </form>
             </div>
         </div>
