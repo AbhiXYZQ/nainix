@@ -1,3 +1,13 @@
 User-agent: *
 Allow: /
+
+# CSS aur JS ko allow karein taaki Google mobile view check kar sake
+Allow: /style.css
+Allow: /script.js
+Allow: /image/
+
+# Thank You page ko search result me mat dikhao
+Disallow: /thankyou.html
+
+# Sitemap ki location
 Sitemap: https://nainix.xyz/sitemap.xml
