@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post | Nainix Dev</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="body">
+    <div class="cursor-dot"></div>
+    <div class="cursor-circle"></div>
+    <nav class="nav">...</nav> 
+
+    <section class="blog">
+        <div class="blog-post-container">
+            <img id="post-image" class="blog-post-image" src="" alt="Blog Image">
+            
+            <div class="blog-post-meta">
+                <p>By <span id="post-author"></span> | <span id="post-date"></span></p>
+            </div>
+            
+            <div class="blog-post-content">
+                <h1 id="post-title" style="color: #00ff06; font-family: monospace;"></h1>
+                <div id="post-body"></div>
+
+                <a href="blog.html" class="back-to-blog">← Back to Blog</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="blog-data.js"></script>
+    <script>
+        // URL se ID nikalo (Jaisa: ?id=laptop-2025)
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get('id');
+
+        // Data dhoondo
+        const post = blogPosts[postId];
+
+        if (post) {
+            // Agar data mila, to HTML me bhar do
+            document.title = post.title + " | Nainix Dev";
+            document.getElementById('post-image').src = post.image;
+            document.getElementById('post-title').innerText = post.title;
+            document.getElementById('post-author').innerText = post.author;
+            document.getElementById('post-date').innerText = post.date;
+            document.getElementById('post-body').innerHTML = post.content;
+        } else {
+            // Agar galat ID hai to error dikhao
+            document.getElementById('post-body').innerHTML = "<h2 style='color:red'>Post Not Found (404)</h2>";
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
