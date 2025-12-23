@@ -227,3 +227,63 @@ document.addEventListener("DOMContentLoaded", function() {
         form.addEventListener("submit", handleSubmit);
     }
 });
+
+// ========================================= //
+// ========= BLOG FILTER & SEARCH ========== //
+// ========================================= //
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Elements select karein
+    const filterButtons = document.querySelectorAll('.category-btn');
+    const searchInput = document.getElementById('searchInput');
+    const blogCards = document.querySelectorAll('.blog-card, .featured-post');
+
+    // 1. Category Filter Logic
+    if (filterButtons.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Active class purane button se hatayein aur naye par lagayein
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const category = button.getAttribute('data-filter');
+
+                blogCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    
+                    // Logic: Agar 'all' hai YA category match ho rahi hai
+                    if (category === 'all' || category === cardCategory) {
+                        // FIX: Yahan 'block' nahi, empty string '' use karein.
+                        // Isse browser wapas wahi style uthayega jo CSS file mein hai (Flex/Grid etc.)
+                        card.style.display = ''; 
+                        
+                        // Thoda animation smooth karne ke liye
+                        card.style.opacity = '0';
+                        setTimeout(() => card.style.opacity = '1', 50);
+                    } else {
+                        card.style.display = 'none'; // Chhupane ke liye
+                    }
+                });
+            });
+        });
+    }
+
+    // 2. Search Bar Logic
+    if (searchInput) {
+        searchInput.addEventListener('keyup', (e) => {
+            const searchText = e.target.value.toLowerCase();
+
+            blogCards.forEach(card => {
+                const titleElement = card.querySelector('h3');
+                if (titleElement) {
+                    const title = titleElement.innerText.toLowerCase();
+                    if (title.includes(searchText)) {
+                        card.style.display = ''; // FIX: Wapas original CSS style use karein
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        });
+    }
+});

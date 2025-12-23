@@ -1212,3 +1212,314 @@
         height: 300px;
     }
 }
+
+/* ============ NEW BLOG STYLES (Paste at end of style.css) ============ */
+
+/* Search & Filter Bar */
+.blog-filter-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 3rem;
+    margin-top: 8rem;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    background: #111;
+    border: 1px solid #333;
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: #fff;
+    width: 300px;
+    transition: 0.3s;
+}
+
+.search-box:focus {
+    border-color: var(--theme-color);
+    box-shadow: 0 0 10px rgba(0, 255, 6, 0.2);
+    outline: none;
+}
+
+.category-btn {
+    background: transparent;
+    border: 1px solid #333;
+    color: #888;
+    padding: 8px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.category-btn:hover, .category-btn.active {
+    border-color: var(--theme-color);
+    color: var(--theme-color);
+    background: rgba(0, 255, 6, 0.05);
+}
+
+/* Featured Post (Hero) */
+.featured-post {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    background: #111;
+    border: 1px solid var(--theme-color);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 0 30px rgba(0, 255, 6, 0.1);
+    position: relative;
+}
+
+.featured-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--theme-color);
+    color: #000;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    z-index: 10;
+}
+
+.featured-img {
+    width: 50%;
+    object-fit: cover;
+}
+
+.featured-content {
+    padding: 3rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.featured-content h3 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+/* Standard Blog Grid Improvements */
+.blog-card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.4s;
+    text-align: left;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    border-color: #444;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.blog-thumb {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #222;
+}
+
+.blog-details {
+    padding: 1.5rem;
+}
+
+.blog-tag {
+    color: var(--theme-color);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.blog-title {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 0.8rem;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.blog-meta {
+    font-size: 0.8rem;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    border-top: 1px solid #222;
+    padding-top: 10px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .featured-post {
+        flex-direction: column;
+    }
+    .featured-img {
+        width: 100%;
+        height: 250px;
+    }
+    .featured-content {
+        padding: 1.5rem;
+    }
+    .featured-content h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ============ SINGLE BLOG POST STYLES ============ */
+
+/* Reading Progress Bar */
+.progress-container {
+    width: 100%;
+    height: 4px;
+    background: #111;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+.progress-bar {
+    height: 4px;
+    background: var(--theme-color);
+    width: 0%;
+    transition: width 0.1s;
+    box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    max-width: 800px;
+    margin: 80px auto 1rem;
+    padding: 0 1.5rem;
+    font-size: 0.9rem;
+    color: #888;
+}
+.breadcrumbs a {
+    color: var(--theme-color);
+    text-decoration: none;
+}
+
+/* Article Container */
+.article-container {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    background: #0a0a0a; /* Darker background for focus */
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid #222;
+    box-shadow: 0 0 40px rgba(0, 255, 6, 0.05);
+}
+
+/* Header Typography */
+.article-header h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-family: 'Calibri', sans-serif; /* Clean font */
+}
+
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #222;
+    padding-bottom: 1.5rem;
+}
+
+.author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--theme-color);
+}
+
+/* Featured Image */
+.article-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    border: 1px solid #333;
+}
+
+/* Content Typography (For Readability) */
+.article-content {
+    font-size: 1.1rem; /* Thoda bada font */
+    line-height: 1.8; /* Lines ke beech space */
+    color: #d1d1d1;
+}
+
+.article-content h2 {
+    color: var(--theme-color);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.article-content h3 {
+    color: var(--theme-color);
+    margin-top: 2rem;
+    font-size: 1.4rem;
+}
+
+.article-content p {
+    margin-bottom: 1.5rem;
+}
+
+.article-content a {
+    color: black;
+    text-decoration: none;
+}
+
+.article-content ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.article-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* Share Section */
+.share-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #222;
+    text-align: center;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.share-wa { background: #25D366; color: #fff; }
+.share-wa:hover { box-shadow: 0 0 15px #25D366; }
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .article-header h1 { font-size: 1.8rem; }
+    .article-container { padding: 1.5rem; margin: 0 1rem 4rem; }
+    .article-content { font-size: 1rem; }
+}

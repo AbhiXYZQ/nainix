@@ -3,53 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Post | Nainix Dev</title>
+    <title>Loading... | Nainix Dev Blog</title>
+    
+    <meta name="description" content="Read expert tech insights on Nainix Dev Blog.">
+    
+    <link rel="icon" href="image/nainixDevBlackLogo.png" type="image/png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="body">
     <div class="cursor-dot"></div>
     <div class="cursor-circle"></div>
-    <nav class="nav">...</nav> 
 
-    <section class="blog">
-        <div class="blog-post-container">
-            <img id="post-image" class="blog-post-image" src="" alt="Blog Image">
-            
-            <div class="blog-post-meta">
-                <p>By <span id="post-author"></span> | <span id="post-date"></span></p>
-            </div>
-            
-            <div class="blog-post-content">
-                <h1 id="post-title" style="color: #00ff06; font-family: monospace;"></h1>
-                <div id="post-body"></div>
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
 
-                <a href="blog.html" class="back-to-blog">← Back to Blog</a>
-            </div>
+    <nav class="nav">
+        <div class="logo">
+            <img src="image/nainixDevLogo.png" alt="Nainix Dev Logo" class="logo-img">
+            <span class="head1">Nainix</span>
+            <span class="head2">Dev</span>
         </div>
-    </section>
+        <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html" style="color:var(--theme-color);">Blog</a></li>
+            <li><a href="contact.html" class="aa btn">Contact</a></li>
+        </ul>
+    </nav>
 
+    <div class="breadcrumbs">
+        <a href="index.html">Home</a> > <a href="blog.html">Blog</a> > <span id="bread-title" style="color:#fff;">Loading...</span>
+    </div>
+
+    <article class="article-container">
+        <header class="article-header">
+            <h1 id="post-title">Loading Article...</h1>
+            
+            <div class="article-meta">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBbxKeby8jWbk8BKrOk6HVpNzFrVqJoFrUlKLC8wSinbuU4Rm-DQahP7cURFpQBznfxdBUtHR121mG_8lydBzCvTvSGScuxrT6pdm7quo5dT0kyyg0ihKHIAv2FZB2QXY3jXYi-aBs5bG5bbJCJBPDeb0q11LXSW0qfMLHVcIGcc_JJI8eOc6Yn9oRrgLI/s2380/1000058080.webp" alt="Author" class="author-avatar">
+                <div>
+                    <span style="display:block; color:#fff; font-weight:bold;" id="post-author">Abhishek Kumar</span>
+                    <span id="post-date">...</span>
+                </div>
+            </div>
+        </header>
+
+        <img id="post-image" class="article-image" src="" alt="Blog Cover Image" style="display:none;"> <div id="post-body" class="article-content">
+            <p>Fetching data from server...</p>
+        </div>
+
+        <div class="share-section">
+            <p style="color:#888; margin-bottom:1rem;">Found this helpful? Share it!</p>
+            <a href="#" id="share-wa" class="share-btn share-wa" target="_blank">
+                📱 Share on WhatsApp
+            </a>
+            <a href="blog.html" class="btn3" style="margin-left:10px;">← More Articles</a>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>© 2025 Nainix Dev. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
     <script src="blog-data.js"></script>
+
     <script>
-        // URL se ID nikalo (Jaisa: ?id=laptop-2025)
+        // 1. Data Fetch Logic
         const urlParams = new URLSearchParams(window.location.search);
         const postId = urlParams.get('id');
-
-        // Data dhoondo
         const post = blogPosts[postId];
 
         if (post) {
-            // Agar data mila, to HTML me bhar do
+            // Update Page Content
             document.title = post.title + " | Nainix Dev";
-            document.getElementById('post-image').src = post.image;
             document.getElementById('post-title').innerText = post.title;
+            document.getElementById('bread-title').innerText = post.title.substring(0, 30) + "..."; // Short title for breadcrumb
             document.getElementById('post-author').innerText = post.author;
             document.getElementById('post-date').innerText = post.date;
             document.getElementById('post-body').innerHTML = post.content;
+            
+            const imgEl = document.getElementById('post-image');
+            imgEl.src = post.image;
+            imgEl.style.display = 'block';
+
+            // Update Share Links
+            const currentUrl = encodeURIComponent(window.location.href);
+            const shareText = encodeURIComponent(`Check out this article: ${post.title}`);
+            document.getElementById('share-wa').href = `https://wa.me/?text=${shareText}%20${currentUrl}`;
+
         } else {
-            // Agar galat ID hai to error dikhao
-            document.getElementById('post-body').innerHTML = "<h2 style='color:red'>Post Not Found (404)</h2>";
+            // Error Handling
+            document.getElementById('post-title').innerText = "404: Article Not Found";
+            document.getElementById('post-body').innerHTML = "<p style='color:red'>Sorry, the article you are looking for does not exist or has been moved.</p><a href='blog.html' class='btn2'>Go Back to Blog</a>";
+            document.getElementById('post-image').style.display = 'none';
+        }
+
+        // 2. Reading Progress Bar Logic
+        window.onscroll = function() {myFunction()};
+
+        function myFunction() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
         }
     </script>
-    <script src="script.js"></script>
 </body>
 </html>

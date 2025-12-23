@@ -43,55 +43,95 @@
         </ul>
     </nav>
 
-    <section class="cardText">
-        <h1>
-            <span class="cT1">From Our </span>
-            <span class="cT2">Blog</span>
-            <span class="cT1"><br>Insights & Articles</span>
-        </h1>
-        <p class="cT3">
-            Explore our thoughts on technology, design, and the digital world.
-        </p>
+    <section style="padding: 0 1rem;">
+        <div class="blog-filter-area">
+    <input type="text" id="searchInput" class="search-box" placeholder="Search articles (e.g., Python, Hosting)...">
+    
+    <button class="category-btn active" data-filter="all">All</button>
+    <button class="category-btn" data-filter="review">Reviews</button>
+    <button class="category-btn" data-filter="coding">Coding</button>
+    <button class="category-btn" data-filter="design">Design</button>
+</div>
+    </section>
+
+    <section style="padding: 0 1.5rem;">
+        <article class="featured-post" data-category="review">
+            <span class="featured-badge">🔥 HOT DEAL</span>
+            <img src="https://tse2.mm.bing.net/th/id/OIP.dDAnqs4B-dsqt8ymMhIX1QHaEK?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Hostinger Deal 2025" class="featured-img">
+            <div class="featured-content">
+                <span class="blog-tag">Web Hosting Review</span>
+                <h3>Best Web Hosting for Students in 2025 (70% OFF)</h3>
+                <p style="color: #aaa; margin-bottom: 1.5rem;">
+                    Career shuru kar rahe ho? Toh mehngi hosting mat lo. Jaaniye kyun Hostinger students ke liye No.1 choice hai.
+                </p>
+                <a href="blog-view.html?id=web-hosting" class="btn2" style="display:inline-block; text-align:center;">
+                    Read Review & Get Offer
+                </a>
+            </div>
+        </article>
     </section>
 
     <section class="projects">
-        <h2>
+        <h2 style="text-align:center; margin-bottom:2rem;">
             <span class="our">Latest </span>
-            <span class="achiv">Articles</span>
+            <span class="achiv">Insights</span>
         </h2>
+        
         <div class="project-grid">
-            <div class="project-card">
-                <a href="blog-single.html">
-                <img src="https://placehold.co/600x400/000000/00ff03?text=Web+Trends" alt="Web Development Trends">
+            
+            <article class="blog-card" data-category="review">
+                <a href="blog-view.html?id=laptop-2025">
+                    <img src="https://m.media-amazon.com/images/I/71TPda7cwUL._SL1500_.jpg" alt="Best Laptop for Coding" class="blog-thumb">
                 </a>
-                <h3>Top 5 Web Development Trends in 2025</h3>
-                <p>Stay ahead of the curve by learning about the latest trends shaping the future of the web, from AI integration to serverless architecture.</p>
-                <div class="project-card">
-    <a href="blog-view.html?id=web-hosting"> <img src="https://assets.hostinger.com/images/og-image-en-d3457a4d56.png" alt="Best Web Hosting 2025">
-    </a>
-    <h3>Best Web Hosting for Beginners in 2025</h3>
-    <p>Hosting khareedne se pehle ye padhein. Students ke liye best aur sasti hosting deal (70% OFF) yahan milegi.</p>
-    <a href="blog-view.html?id=web-hosting" class="cardPara1">Read More →</a> </div>
-            </div>
-            <div class="project-card">
-                <a href="blog-single.html">
-                <img src="https://placehold.co/600x400/000000/00ff03?text=SEO+Tips" alt="SEO Tips for Developers">
+                <div class="blog-details">
+                    <span class="blog-tag">Gadget Review</span>
+                    <h3 class="blog-title">Top 5 Laptops for Coding Under ₹50k</h3>
+                    <p style="color:#888; font-size:0.9rem;">
+                        B.Tech students ke liye heavy performance laptops jo budget mein fit hon.
+                    </p>
+                    <div class="blog-meta">
+                        <time datetime="2025-11-30">Nov 30, 2025</time>
+                        <span>5 Min Read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="coding">
+                <a href="#">
+                    <img src="https://placehold.co/600x400/111/00ff03?text=SEO+Guide" alt="SEO Tips for Developers" class="blog-thumb">
                 </a>
-                <h3>A Developer's Guide to Basic SEO</h3>
-                <p>SEO isn't just for marketers. Learn the essential on-page SEO techniques every web developer should know to build high-ranking websites.</p>
-                <a href="blog-single.html" class="cardPara1">Read More →</a>
-            </div>
-            <div class="project-card">
-                <a href="blog-single.html">
-                <img src="https://placehold.co/600x400/000000/00ff03?text=UI/UX" alt="UI vs UX Design">
+                <div class="blog-details">
+                    <span class="blog-tag">Web Development</span>
+                    <h3 class="blog-title">A Developer's Guide to Basic SEO</h3>
+                    <p style="color:#888; font-size:0.9rem;">
+                        SEO sirf marketing walo ka kaam nahi hai. Code likhte waqt hi ranking fix karein.
+                    </p>
+                    <div class="blog-meta">
+                        <time datetime="2025-12-10">Dec 10, 2025</time>
+                        <span>7 Min Read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="design">
+                <a href="#">
+                    <img src="https://placehold.co/600x400/111/00ff03?text=UI+vs+UX" alt="UI vs UX Design" class="blog-thumb">
                 </a>
-                <h3>UI vs. UX: What's the Difference and Why It Matters</h3>
-                <p>We break down the key differences between User Interface (UI) and User Experience (UX) and explain why both are critical for a successful project.</p>
-                <a href="blog-single.html" class="cardPara1">Read More →</a>
-            </div>
+                <div class="blog-details">
+                    <span class="blog-tag">Design</span>
+                    <h3 class="blog-title">UI vs. UX: What's the Difference?</h3>
+                    <p style="color:#888; font-size:0.9rem;">
+                        Design sirf sundar dikhna nahi hota. Jaaniye kaise user experience sales badhata hai.
+                    </p>
+                    <div class="blog-meta">
+                        <time datetime="2025-12-12">Dec 12, 2025</time>
+                        <span>4 Min Read</span>
+                    </div>
+                </div>
+            </article>
+
         </div>
     </section>
-
     <a href="https://wa.me/918544057504?text=Hello%20Nainix%20Dev!%20I%20enjoyed%20reading%20your%20blog." target="_blank">
         <img class="whatsapp-button" src="image/whatsappLogo.png" alt="WhatsApp Link">
     </a>
