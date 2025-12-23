@@ -309,87 +309,123 @@ window.addEventListener('load', () => {
 });
 
 // temp
-// --- DEAL FORM LOGIC ---
 
-function nextStep(step) {
-    // Validation Step 1
-    if (step === 2) {
-        const name = document.querySelector('input[name="name"]').value;
-        const phone = document.querySelector('input[name="phone"]').value;
-        if (!name || !phone) {
-            alert("⚠️ Name and WhatsApp number are required!");
-            return;
-        }
-    }
-    
-    // Change Screen
-    document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
-    document.getElementById('step' + step).classList.add('active');
+
+
+
+
+
+// ========================================= //
+// ========= WINTER WIZARD LOGIC (FINAL) === //
+// ========================================= //
+
+// 1. EmailJS Initialize
+(function(){
+    emailjs.init("BrTwSa9S0SWqsPJI5"); // Public Key
+    console.log("✅ EmailJS Ready");
+})();
+
+// 2. Open/Close Modal
+function openModal() { 
+    const modal = document.getElementById('orderModal');
+    if(modal) modal.classList.add('active'); 
+}
+function closeModal() { 
+    const modal = document.getElementById('orderModal');
+    if(modal) modal.classList.remove('active'); 
 }
 
-// Validation Step 2 (Agreement Check)
-function validateAgreement() {
-    const checkbox = document.getElementById('videoPromise');
-    if (!checkbox.checked) {
-        alert("⚠️ You must agree to provide a Video Review to get this free offer.");
-        // Shake animation effect (Optional visual feedback)
-        checkbox.parentElement.style.animation = "shake 0.3s";
-        setTimeout(() => checkbox.parentElement.style.animation = "", 300);
-        return;
-    }
-    nextStep(3);
-}
-
-// Modal Functions
-function openModal() { document.getElementById('orderModal').classList.add('active'); }
-function closeModal() { document.getElementById('orderModal').classList.remove('active'); }
-
-// Connect to Badge
+// 3. Connect Badge
 document.addEventListener("DOMContentLoaded", function() {
     const offerBadge = document.getElementById('cyber-loot-box');
     if(offerBadge) {
         offerBadge.removeAttribute('href'); 
         offerBadge.addEventListener('click', openModal);
     }
-    
-    // Submit Handling
-    const form = document.getElementById("free-claim-form");
-    if(form) {
-        form.addEventListener("submit", function(event) {
-            event.preventDefault();
-            const btn = form.querySelector(".submit-btn-final");
-            const status = document.getElementById("form-status");
-            
-            btn.innerHTML = "LOCKING DEAL...";
-            
-            const data = new FormData(event.target);
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            }).then(response => {
-                if (response.ok) {
-                    document.querySelector('.deal-box').innerHTML = `
-                        <div style="text-align:center; padding:2rem;">
-                            <h2 style="font-size:3rem;">🤝</h2>
-                            <h3 style="color:var(--theme-color);">DEAL LOCKED!</h3>
-                            <p style="color:#aaa; margin:10px 0;">We have received your request.</p>
-                            <p style="color:#fff; font-size:0.9rem; border:1px dashed #444; padding:10px; margin-top:20px;">
-                                REMINDER: Don't forget the video review later!
-                            </p>
-                            <button onclick="closeModal()" class="next-btn" style="margin-top:20px;">Done</button>
-                        </div>
-                    `;
-                } else {
-                    status.innerHTML = "Error. Try again.";
-                    btn.innerHTML = "TRY AGAIN";
-                }
-            });
-        });
-    }
 });
 
-// CSS Animation for Shake
-const styleSheet = document.createElement("style");
-styleSheet.innerText = "@keyframes shake { 0% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } 100% { transform: translateX(0); } }";
-document.head.appendChild(styleSheet);
+// 4. Validation Logic
+window.validateStep1 = function() {
+    const nameVal = document.getElementById('fname').value;
+    const emailVal = document.getElementById('femail').value;
+    const phoneVal = document.getElementById('fphone').value;
+
+    if(nameVal.length < 3) { alert("⚠️ Naam likhna zaroori hai!"); return; }
+    if(!emailVal.includes('@')) { alert("⚠️ Sahi Email likhein."); return; }
+    if(phoneVal.length !== 10) { alert("⚠️ Phone number 10 digit ka hona chahiye."); return; }
+
+    showStep(2);
+};
+
+window.showStep = function(stepIndex) {
+    document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+    document.getElementById('step' + stepIndex).classList.add('active');
+    document.querySelectorAll('.step-dot').forEach((dot, index) => {
+        if(index + 1 === stepIndex) dot.classList.add('active');
+        else dot.classList.remove('active');
+    });
+};
+
+// 5. DIRECT SUBMIT FUNCTION (No Reload)
+window.submitWinterForm = function(btnElement) {
+    console.log("🚀 Button Clicked - Starting Process...");
+
+    // Agreement Check
+    const agreeBox = document.getElementById('agreeBox');
+    if(!agreeBox.checked) {
+        alert("⚠️ Please tick the Video Review box.");
+        return;
+    }
+
+    // UI Updates (Loading)
+    const form = document.getElementById('winter-form');
+    const loader = document.getElementById('submit-loading');
+    
+    btnElement.style.display = 'none'; // Button Chupao
+    if(loader) {
+        loader.style.display = 'block';
+        loader.innerText = "Processing Request...";
+    }
+
+    // --- Generate Order ID ---
+    const orderID = "ND-" + Math.floor(100000 + Math.random() * 900000);
+    console.log("🆔 Order ID:", orderID);
+
+    // Hidden Input for Order ID
+    let oldInput = form.querySelector('input[name="order_id"]');
+    if(oldInput) oldInput.remove();
+
+    let idInput = document.createElement("input");
+    idInput.type = "hidden";
+    idInput.name = "order_id";
+    idInput.value = orderID;
+    form.appendChild(idInput);
+
+    // --- EMAIL SENDING ---
+    const serviceID = "nainixdev_freewebsite";
+    const templateID = "template_xh8t16o";
+
+    emailjs.sendForm(serviceID, templateID, form)
+        .then(() => {
+            console.log("✅ SUCCESS! Email Sent.");
+            
+            // Hide Form & Show Reward
+            form.style.display = 'none';
+            const rewardScreen = document.getElementById('reward-screen');
+            const rewardBody = document.querySelector('.reward-body');
+            
+            if(rewardBody && !rewardBody.querySelector('.order-id-display')) {
+                const idTag = document.createElement('div');
+                idTag.className = 'order-id-display';
+                idTag.innerHTML = `<p style="margin-top:10px; color:#00ffff; border:1px dashed #00ffff; padding:5px; display:inline-block;">Order ID: <strong>${orderID}</strong></p>`;
+                rewardBody.insertBefore(idTag, rewardBody.querySelector('.contact-promise'));
+            }
+            if(rewardScreen) rewardScreen.style.display = 'block';
+
+        }, (err) => {
+            console.error("❌ FAILED:", err);
+            alert("Error: Email nahi gaya. " + JSON.stringify(err));
+            btnElement.style.display = 'block';
+            if(loader) loader.style.display = 'none';
+        });
+};

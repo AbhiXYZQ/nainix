@@ -65,6 +65,7 @@
       }
     }
     </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body class="body">
     <div id="preloader">
@@ -386,75 +387,122 @@
         }, 1000);
     });
 </script>
-<div id="orderModal" class="modal-overlay">
-    <div class="modal-box deal-box">
-        <button class="close-btn" onclick="closeModal()">×</button>
+<div id="orderModal" class="winter-overlay">
+    <div class="winter-box">
+        <button class="winter-close" onclick="closeModal()">×</button>
         
-        <div class="deal-header">
-            <span class="deal-badge">LIMITED OFFER</span>
-            <h3>CLAIM FREE WEBSITE</h3>
-            <p>We build. You review. Simple deal.</p>
+        <div class="snowflake-decor">❄️</div>
+        <div class="snowflake-decor s2">❄️</div>
+
+        <div id="reward-screen" style="display: none;">
+            <div class="reward-card">
+                <div class="reward-header">OFFER UNLOCKED</div>
+                <div class="reward-body">
+                    <div class="big-check">✔</div>
+                    <h3>Request Confirmed!</h3>
+                    <p>Your Free Website slot is booked.</p>
+                    
+                    <div class="contact-promise">
+                        <span class="icon">📞</span>
+                        <span>We will contact you within <strong>24 HOURS</strong></span>
+                    </div>
+                    
+                    <p class="email-note" style="color: #ccc; margin-top: 10px; font-size: 0.85rem;">
+                        Check your Email (including Spam) for details.
+                    </p>
+                </div>
+                <button onclick="closeModal()" class="claim-btn">Awesome!</button>
+            </div>
         </div>
 
-        <form id="free-claim-form" action="https://formspree.io/f/xpwrroeq" method="POST">
-            <input type="hidden" name="Subject" value="FREE WEBSITE CLAIM REQUEST">
+        <form id="winter-form">
             
+            <div class="step-progress">
+                <div class="step-dot active">1</div>
+                <div class="step-line"></div>
+                <div class="step-dot">2</div>
+                <div class="step-line"></div>
+                <div class="step-dot">3</div>
+            </div>
+
             <div class="form-step active" id="step1">
-                <label class="cyber-label">YOUR IDENTITY</label>
-                <input type="text" name="name" required placeholder="Full Name" class="cyber-input">
-                <input type="tel" name="phone" required placeholder="WhatsApp Number" class="cyber-input">
+                <h3>Let's Connect ❄️</h3>
+                <p>Enter details to verify eligibility.</p>
                 
-                <div class="wizard-nav right">
-                    <button type="button" class="next-btn" onclick="nextStep(2)">NEXT STEP ➔</button>
+                <div class="input-snow">
+                    <label>Full Name</label>
+                    <input type="text" id="fname" name="name" placeholder="Enter full name" required>
                 </div>
+
+                <div class="input-snow">
+                    <label>Email Address</label>
+                    <input type="email" id="femail" name="email" placeholder="name@example.com" required>
+                    <span class="error-msg" id="emailError">Invalid Email Address</span>
+                </div>
+
+                <div class="input-snow">
+                    <label>Phone Number (WhatsApp)</label>
+                    <input type="tel" id="fphone" name="phone" placeholder="9876543210" maxlength="10" required>
+                    <span class="error-msg" id="phoneError">Enter valid 10-digit number</span>
+                </div>
+
+                <button type="button" class="winter-btn" onclick="validateStep1()">Next Step ➔</button>
             </div>
 
             <div class="form-step" id="step2">
-                <div class="price-breakdown">
-                    <div class="cost-row">
-                        <span>Development Cost:</span>
-                        <span class="crossed-price">₹15,000</span>
-                    </div>
-                    <div class="cost-row highlight">
-                        <span>You Pay:</span>
-                        <span class="free-price">₹0</span>
-                    </div>
-                    <div class="fee-divider">BUT THERE IS A FEE 👇</div>
-                    <div class="fee-box">
-                        <span class="fee-label">YOUR ACTUAL FEE:</span>
-                        <strong class="fee-value">1 VIDEO REVIEW</strong>
-                        <p class="fee-desc">You must record a 30-sec video review after we deliver the project.</p>
-                    </div>
+                <h3>Your Vision 🚀</h3>
+                <p>What are we building today?</p>
+                
+                <div class="input-snow">
+                    <label>Project Type</label>
+                    <select name="category" required>
+                        <option value="Portfolio">Personal Portfolio</option>
+                        <option value="Business">Business Website</option>
+                        <option value="E-commerce">Small Shop / Store</option>
+                        <option value="Blogging">Blogging Site</option>
+                    </select>
                 </div>
 
-                <label class="agreement-checkbox">
-                    <input type="checkbox" id="videoPromise" required>
-                    <span class="checkmark"></span>
-                    <span class="agree-text">I promise to send a Video Review.</span>
-                </label>
+                <div class="input-snow">
+                    <label>Reference / Idea</label>
+                    <textarea name="message" placeholder="Describe your idea or paste a link..." rows="3" required></textarea>
+                </div>
 
-                <div class="wizard-nav">
-                    <button type="button" class="back-btn" onclick="nextStep(1)">⬅ BACK</button>
-                    <button type="button" class="next-btn" onclick="validateAgreement()">I AGREE ➔</button>
+                <div class="btn-group">
+                    <button type="button" class="winter-btn-outline" onclick="showStep(1)">Back</button>
+                    <button type="button" class="winter-btn" onclick="showStep(3)">Next Step ➔</button>
                 </div>
             </div>
 
             <div class="form-step" id="step3">
-                <label class="cyber-label">WHAT DO YOU WANT?</label>
-                <select name="category" class="cyber-input">
-                    <option value="Portfolio">Personal Portfolio</option>
-                    <option value="Shop">Small Shop / E-com</option>
-                    <option value="Business">Business Landing Page</option>
-                    <option value="Blog">Content Blog</option>
-                </select>
-
-                <textarea name="idea" rows="3" required placeholder="Describe your website idea in short..." class="cyber-input"></textarea>
-
-                <div class="wizard-nav">
-                    <button type="button" class="back-btn" onclick="nextStep(2)">⬅ BACK</button>
-                    <button type="submit" class="submit-btn-final">CLAIM NOW 🚀</button>
+                <h3>Final Deal 🤝</h3>
+                <p>Zero Cost. Just one small promise.</p>
+                
+                <div class="deal-ticket">
+                    <div class="ticket-row">
+                        <span>Development Cost:</span>
+                        <span class="cut-price">₹15,000</span>
+                    </div>
+                    <div class="ticket-row highlight">
+                        <span>Your Price:</span>
+                        <span class="free-text">FREE</span>
+                    </div>
+                    <hr style="border-color: #333; margin: 10px 0;">
+                    <p class="term-text">Required: <strong>1 Video Review</strong> after delivery.</p>
                 </div>
-                <p id="form-status"></p>
+
+                <label class="snow-checkbox">
+                    <input type="checkbox" id="agreeBox">
+                    <span>I promise to send a Video Review.</span>
+                </label>
+
+                <div class="btn-group">
+                    <button type="button" class="winter-btn-outline" onclick="showStep(2)">Back</button>
+                    <button type="button" onclick="submitWinterForm(this)" class="winter-btn finish-btn">CLAIM OFFER 🎁</button>
+                </div>
+                <p id="submit-loading" style="display:none; text-align:center; margin-top:10px; color:#00ffff; font-size:0.9rem;">
+                    Generating Order ID...
+                </p>
             </div>
 
         </form>

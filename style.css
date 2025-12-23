@@ -715,75 +715,6 @@
 }
 
 
-
-/* --- DEAL MODAL STYLES --- */
-.deal-box {
-    background: #050505;
-    width: 90%; max-width: 450px;
-    padding: 2rem;
-    border: 2px solid var(--theme-color);
-    box-shadow: 0 0 50px rgba(0, 255, 6, 0.1);
-    border-radius: 10px;
-    position: relative;
-    font-family: 'Calibri', sans-serif;
-}
-
-.deal-header { text-align: center; margin-bottom: 20px; border-bottom: 1px solid #222; padding-bottom: 15px; }
-.deal-badge { background: var(--theme-color); color: #000; padding: 2px 8px; font-weight: bold; font-size: 0.7rem; border-radius: 2px; }
-.deal-header h3 { color: #fff; margin-top: 10px; font-size: 1.5rem; letter-spacing: 1px; }
-.deal-header p { color: #888; font-size: 0.9rem; }
-
-/* Inputs */
-.cyber-label { color: var(--theme-color); font-size: 0.8rem; font-weight: bold; margin-bottom: 8px; display: block; letter-spacing: 1px; }
-.cyber-input {
-    width: 100%; padding: 12px; margin-bottom: 15px;
-    background: #111; border: 1px solid #333; color: #fff;
-    border-radius: 5px; transition: 0.3s;
-}
-.cyber-input:focus { border-color: var(--theme-color); outline: none; }
-
-/* THE DEAL CARD (Key Part) */
-.price-breakdown {
-    background: #111; padding: 15px; border-radius: 8px;
-    margin-bottom: 20px; border: 1px dashed #444;
-}
-.cost-row { display: flex; justify-content: space-between; margin-bottom: 8px; color: #888; font-size: 0.9rem; }
-.crossed-price { text-decoration: line-through; color: #ff0022; }
-.cost-row.highlight { color: #fff; font-weight: bold; font-size: 1.1rem; }
-.free-price { color: var(--theme-color); }
-
-.fee-divider { text-align: center; font-size: 0.8rem; color: #555; margin: 10px 0; position: relative; }
-.fee-divider::before, .fee-divider::after { content: '-'; color: #333; margin: 0 5px; }
-
-.fee-box {
-    background: rgba(255, 0, 34, 0.1); border: 1px solid #ff0022;
-    padding: 10px; text-align: center; border-radius: 5px;
-}
-.fee-label { color: #ff0022; font-size: 0.7rem; display: block; margin-bottom: 5px; }
-.fee-value { color: #fff; font-size: 1.2rem; display: block; text-shadow: 0 0 10px #ff0022; }
-.fee-desc { font-size: 0.75rem; color: #aaa; margin-top: 5px; font-style: italic; }
-
-/* Agreement Checkbox */
-.agreement-checkbox { display: flex; align-items: center; gap: 10px; cursor: pointer; margin-top: 15px; }
-.agreement-checkbox input { width: 20px; height: 20px; accent-color: var(--theme-color); cursor: pointer; }
-.agree-text { color: #fff; font-size: 0.9rem; }
-
-/* Buttons */
-.wizard-nav { display: flex; justify-content: space-between; margin-top: 20px; }
-.wizard-nav.right { justify-content: flex-end; }
-.next-btn, .submit-btn-final {
-    background: var(--theme-color); color: #000; padding: 10px 25px;
-    border: none; font-weight: bold; cursor: pointer; border-radius: 50px;
-}
-.back-btn { background: transparent; color: #888; border: none; cursor: pointer; }
-.next-btn:hover, .submit-btn-final:hover { box-shadow: 0 0 15px var(--theme-color); }
-
-/* Steps logic */
-.form-step { display: none; animation: fadeIn 0.4s ease; }
-.form-step.active { display: block; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: 0; } }
-
-
 /* --- MISSING MODAL OVERLAY STYLES --- */
 .modal-overlay {
     position: fixed; 
@@ -842,3 +773,119 @@
 
 /* Agar aap chahte hain ki Modal me bhi Custom Cursor hi dikhe, 
    to upar wala 'cursor: auto' wala part delete kar dein. */
+
+
+
+   /* ========================================= */
+/* ========= WINTER FROST THEME CSS ======== */
+/* ========================================= */
+
+/* Overlay */
+.winter-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 5, 10, 0.9); /* Deep Dark Blue */
+    backdrop-filter: blur(8px);
+    z-index: 20000; display: none; justify-content: center; align-items: center;
+}
+.winter-overlay.active { display: flex; animation: fadeIn 0.4s ease; }
+
+/* The Glass Box */
+.winter-box {
+    background: rgba(20, 20, 20, 0.6); /* Glassy Black */
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
+    width: 90%; max-width: 450px;
+    padding: 2.5rem; border-radius: 20px;
+    position: relative; overflow: hidden;
+    color: #fff;
+    font-family: 'Calibri', sans-serif;
+}
+
+/* Snowflake Decoration */
+.snowflake-decor { position: absolute; top: -10px; right: -10px; font-size: 3rem; opacity: 0.1; user-select: none; }
+.snowflake-decor.s2 { top: auto; bottom: -10px; left: -10px; right: auto; }
+
+/* Progress Steps */
+.step-progress { display: flex; justify-content: center; align-items: center; margin-bottom: 2rem; }
+.step-dot {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: rgba(255,255,255,0.1); border: 1px solid #555;
+    display: flex; justify-content: center; align-items: center;
+    font-weight: bold; color: #888; transition: 0.3s;
+}
+.step-dot.active {
+    background: #00ffff; color: #000; border-color: #00ffff;
+    box-shadow: 0 0 15px #00ffff;
+}
+.step-line { width: 40px; height: 2px; background: #333; margin: 0 5px; }
+
+/* Form Steps */
+.form-step { display: none; animation: slideIn 0.4s ease; }
+.form-step.active { display: block; }
+.form-step h3 { font-size: 1.8rem; color: #fff; margin-bottom: 5px; text-align: center; }
+.form-step p { color: #aaa; font-size: 0.9rem; text-align: center; margin-bottom: 1.5rem; }
+
+/* Snowy Inputs */
+.input-snow { margin-bottom: 1.2rem; text-align: left; }
+.input-snow label { display: block; color: #ccc; font-size: 0.85rem; margin-bottom: 5px; margin-left: 5px; }
+.input-snow input, .input-snow select, .input-snow textarea {
+    width: 100%; padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #444; border-radius: 10px;
+    color: #fff; font-size: 1rem; outline: none; transition: 0.3s;
+}
+.input-snow input:focus, .input-snow textarea:focus, .input-snow select:focus {
+    border-color: #00ffff; background: #000;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.15);
+}
+
+/* Error Message */
+.error-msg { color: #ff4444; font-size: 0.8rem; display: none; margin-top: 5px; margin-left: 5px; }
+
+/* Buttons */
+.winter-btn {
+    width: 100%; padding: 12px; 
+    background: linear-gradient(90deg, #00ffff, #00ccff);
+    border: none; border-radius: 50px; color: #000; 
+    font-weight: bold; font-size: 1rem;
+    cursor: pointer; transition: 0.3s;
+    margin-top: 10px;
+}
+.winter-btn:hover { box-shadow: 0 0 20px rgba(0, 255, 255, 0.6); transform: translateY(-2px); }
+
+.winter-btn-outline {
+    background: transparent; border: 1px solid #555; color: #ccc;
+    padding: 10px 20px; border-radius: 50px; cursor: pointer; transition: 0.3s;
+}
+.winter-btn-outline:hover { border-color: #fff; color: #fff; }
+
+.btn-group { display: flex; gap: 10px; margin-top: 10px; }
+
+/* REWARD CARD STYLES */
+.reward-card { text-align: center; animation: popUp 0.5s ease; border: 1px solid #00ff06; padding: 1.5rem; border-radius: 15px; background: rgba(0,0,0,0.8); }
+.reward-header { background: #00ff06; color: #000; font-weight: bold; padding: 5px 10px; display: inline-block; border-radius: 5px; font-size: 0.8rem; margin-bottom: 15px; }
+.big-check { font-size: 4rem; color: #00ff06; margin-bottom: 10px; text-shadow: 0 0 20px #00ff06; }
+.reward-body h3 { color: #fff; font-size: 1.5rem; margin-bottom: 5px;}
+.contact-promise { margin: 1.5rem 0; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; border: 1px dashed #00ffff; }
+.claim-btn { background: #00ff06; color: #000; width: 100%; padding: 12px; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+.claim-btn:hover { box-shadow: 0 0 20px #00ff06; }
+
+/* Checkbox */
+.snow-checkbox { display: flex; gap: 10px; justify-content: center; align-items: center; margin-bottom: 1rem; cursor: pointer; }
+.snow-checkbox input { accent-color: #00ffff; width: 18px; height: 18px; }
+
+/* Close Button */
+.winter-close { position: absolute; top: 15px; right: 15px; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; transition: 0.3s; }
+.winter-close:hover { color: #ff4444; transform: rotate(90deg); }
+
+/* Deal Ticket */
+.deal-ticket { background: #111; padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px dashed #444; }
+.ticket-row { display: flex; justify-content: space-between; margin-bottom: 5px; color: #888; font-size: 0.9rem; }
+.cut-price { text-decoration: line-through; color: #ff4444; }
+.free-text { color: #00ff06; font-weight: bold; font-size: 1.2rem; }
+.term-text { color: #00ffff; font-size: 0.8rem; margin-top: 10px; }
+
+/* Animations */
+@keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes popUp { from { transform: scale(0.8); } to { transform: scale(1); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
