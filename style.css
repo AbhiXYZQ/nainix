@@ -1523,3 +1523,78 @@
     .article-container { padding: 1.5rem; margin: 0 1rem 4rem; }
     .article-content { font-size: 1rem; }
 }
+
+/* ============ LOADING ANIMATION STYLES ============ */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000; /* Pura Black Background */
+    z-index: 10000; /* Sabse upar dikhega */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-out; /* Smooth Gayab hone ke liye */
+}
+
+.loader-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Bahar wali Ring */
+.loader-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-top: 3px solid var(--theme-color); /* Neon Green */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 15px var(--theme-color);
+}
+
+/* Andar wali Ring (Opposite ghumegi) */
+.loader-ring2 {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    border: 3px solid transparent;
+    border-bottom: 3px solid #fff; /* White */
+    border-radius: 50%;
+    animation: spinReverse 1.5s linear infinite;
+}
+
+/* Beech ka Text */
+.loader-text {
+    color: var(--theme-color);
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-align: center;
+    animation: pulse 1s infinite alternate;
+    letter-spacing: 1px;
+}
+
+/* Animations Keyframes */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes spinReverse {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; text-shadow: 0 0 5px var(--theme-color); }
+    100% { opacity: 1; text-shadow: 0 0 20px var(--theme-color); }
+}

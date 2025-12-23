@@ -287,3 +287,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// ========================================= //
+// ========= PRELOADER / LOADING SCREEN ==== //
+// ========================================= //
+
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    
+    if (preloader) {
+        // Thoda wait karein taaki user animation dekh sake (Optional)
+        setTimeout(() => {
+            preloader.style.opacity = '0'; // Dhire se gayab karo
+            
+            // Jab gayab ho jaye, tab background se remove kar do
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500); // 0.5s transition time ke barabar
+        }, 800); // 0.8 seconds ka minimum loading time
+    }
+});
