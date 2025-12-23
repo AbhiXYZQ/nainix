@@ -257,5 +257,208 @@
         </div>
     </footer>
     <script src="script.js"></script>
+
+
+
+    <a href="https://wa.me/918544057504?text=I%20want%20to%20claim%20the%20FREE%20WEBSITE%20offer%20before%202026!" target="_blank" id="cyber-loot-box">
+    <div class="glitch-wrapper">
+        <span class="loot-title">⚠️ SPECIAL DROP</span>
+        <span class="loot-offer">FREE WEBSITE</span>
+        <span class="loot-sub">ORDER BEFORE 01 JAN 2026</span>
+        <div id="loot-timer">LOADING...</div>
+        <span class="click-hint">[ CLICK TO CLAIM ]</span>
+    </div>
+</a>
+
+<style>
+    /* --- 1. CORE THEME & VISUALS --- */
+    :root { --theme-color: #fce300 !important; }
+    
+    body {
+        background-color: #050505 !important;
+        background-image: 
+            linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 0, 255, 0.03) 1px, transparent 1px) !important;
+        background-size: 40px 40px !important;
+        overflow-x: hidden;
+    }
+
+    /* Neon Star on Logo */
+    .logo { position: relative; }
+    .logo::after {
+        content: '✦'; position: absolute; font-size: 25px; color: #fce300;
+        top: -15px; right: -15px; text-shadow: 0 0 10px #ff00ff;
+        animation: spinSparkle 3s infinite linear;
+    }
+
+    /* Cyber Snow */
+    .cyber-snow {
+        position: fixed; width: 4px; height: 4px; background: #00ffff;
+        box-shadow: 0 0 5px #00ffff; top: -10px; z-index: 9999;
+        pointer-events: none; animation: cyberFall linear forwards;
+    }
+    .cyber-snow.pink { background: #ff00ff; box-shadow: 0 0 5px #ff00ff; }
+
+    /* --- 2. THE OFFER BOX STYLING --- */
+    #cyber-loot-box {
+        position: fixed; bottom: 20px; right: 20px; z-index: 10000;
+        text-decoration: none; cursor: pointer;
+        transition: transform 0.2s;
+    }
+    #cyber-loot-box:hover { transform: scale(1.05); }
+
+    .glitch-wrapper {
+        background: rgba(0, 0, 0, 0.9);
+        border: 2px solid #fce300;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 5px 5px 0px #ff00ff;
+        font-family: 'Courier New', monospace;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Moving Shine Effect */
+    .glitch-wrapper::before {
+        content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        animation: shine 3s infinite;
+    }
+
+    .loot-title { display: block; font-size: 0.8rem; color: #ff00ff; font-weight: bold; animation: blink 1s infinite; }
+    .loot-offer { display: block; font-size: 1.4rem; color: #fce300; font-weight: 900; text-shadow: 0 0 10px #fce300; margin: 5px 0; }
+    .loot-sub { display: block; font-size: 0.7rem; color: #00ffff; letter-spacing: 1px; }
+    
+    #loot-timer {
+        background: #222; color: #fff; margin-top: 5px; padding: 2px 5px;
+        font-size: 1rem; border: 1px solid #555; font-weight: bold;
+    }
+    
+    .click-hint { display: block; font-size: 0.7rem; color: #aaa; margin-top: 5px; }
+
+    /* Animations */
+    @keyframes spinSparkle { 0% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(180deg) scale(1.2); } 100% { transform: rotate(360deg) scale(1); } }
+    @keyframes cyberFall { to { transform: translateY(105vh); opacity: 0; } }
+    @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+    @keyframes shine { 0% { left: -100%; } 20% { left: 100%; } 100% { left: 100%; } }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar-thumb { background: linear-gradient(#fce300, #ff00ff) !important; }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        // 1. Snow Logic
+        function createCyberSnow() {
+            const snow = document.createElement('div');
+            snow.classList.add('cyber-snow');
+            if(Math.random() > 0.5) snow.classList.add('pink');
+            snow.style.left = Math.random() * 100 + 'vw';
+            snow.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            document.body.appendChild(snow);
+            setTimeout(() => { snow.remove(); }, 7000);
+        }
+        setInterval(createCyberSnow, 150);
+
+        // 2. Offer Countdown Logic
+        const timerEl = document.getElementById('loot-timer');
+        const deadline = new Date("Jan 1, 2026 00:00:00").getTime();
+        
+        const countdownInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = deadline - now;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                timerEl.innerHTML = "OFFER EXPIRED";
+                document.querySelector('.loot-offer').style.color = "red";
+                document.querySelector('.loot-offer').innerText = "MISSED IT!";
+            } else {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Format: 05d 12h 30m 10s
+                timerEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+        }, 1000);
+    });
+</script>
+<div id="orderModal" class="modal-overlay">
+    <div class="modal-box deal-box">
+        <button class="close-btn" onclick="closeModal()">×</button>
+        
+        <div class="deal-header">
+            <span class="deal-badge">LIMITED OFFER</span>
+            <h3>CLAIM FREE WEBSITE</h3>
+            <p>We build. You review. Simple deal.</p>
+        </div>
+
+        <form id="free-claim-form" action="https://formspree.io/f/xpwrroeq" method="POST">
+            <input type="hidden" name="Subject" value="FREE WEBSITE CLAIM REQUEST">
+            
+            <div class="form-step active" id="step1">
+                <label class="cyber-label">YOUR IDENTITY</label>
+                <input type="text" name="name" required placeholder="Full Name" class="cyber-input">
+                <input type="tel" name="phone" required placeholder="WhatsApp Number" class="cyber-input">
+                
+                <div class="wizard-nav right">
+                    <button type="button" class="next-btn" onclick="nextStep(2)">NEXT STEP ➔</button>
+                </div>
+            </div>
+
+            <div class="form-step" id="step2">
+                <div class="price-breakdown">
+                    <div class="cost-row">
+                        <span>Development Cost:</span>
+                        <span class="crossed-price">₹15,000</span>
+                    </div>
+                    <div class="cost-row highlight">
+                        <span>You Pay:</span>
+                        <span class="free-price">₹0</span>
+                    </div>
+                    <div class="fee-divider">BUT THERE IS A FEE 👇</div>
+                    <div class="fee-box">
+                        <span class="fee-label">YOUR ACTUAL FEE:</span>
+                        <strong class="fee-value">1 VIDEO REVIEW</strong>
+                        <p class="fee-desc">You must record a 30-sec video review after we deliver the project.</p>
+                    </div>
+                </div>
+
+                <label class="agreement-checkbox">
+                    <input type="checkbox" id="videoPromise" required>
+                    <span class="checkmark"></span>
+                    <span class="agree-text">I promise to send a Video Review.</span>
+                </label>
+
+                <div class="wizard-nav">
+                    <button type="button" class="back-btn" onclick="nextStep(1)">⬅ BACK</button>
+                    <button type="button" class="next-btn" onclick="validateAgreement()">I AGREE ➔</button>
+                </div>
+            </div>
+
+            <div class="form-step" id="step3">
+                <label class="cyber-label">WHAT DO YOU WANT?</label>
+                <select name="category" class="cyber-input">
+                    <option value="Portfolio">Personal Portfolio</option>
+                    <option value="Shop">Small Shop / E-com</option>
+                    <option value="Business">Business Landing Page</option>
+                    <option value="Blog">Content Blog</option>
+                </select>
+
+                <textarea name="idea" rows="3" required placeholder="Describe your website idea in short..." class="cyber-input"></textarea>
+
+                <div class="wizard-nav">
+                    <button type="button" class="back-btn" onclick="nextStep(2)">⬅ BACK</button>
+                    <button type="submit" class="submit-btn-final">CLAIM NOW 🚀</button>
+                </div>
+                <p id="form-status"></p>
+            </div>
+
+        </form>
+    </div>
+</div>
 </body>
 </html>

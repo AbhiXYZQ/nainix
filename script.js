@@ -307,3 +307,89 @@ window.addEventListener('load', () => {
         }, 800); // 0.8 seconds ka minimum loading time
     }
 });
+
+// temp
+// --- DEAL FORM LOGIC ---
+
+function nextStep(step) {
+    // Validation Step 1
+    if (step === 2) {
+        const name = document.querySelector('input[name="name"]').value;
+        const phone = document.querySelector('input[name="phone"]').value;
+        if (!name || !phone) {
+            alert("⚠️ Name and WhatsApp number are required!");
+            return;
+        }
+    }
+    
+    // Change Screen
+    document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+    document.getElementById('step' + step).classList.add('active');
+}
+
+// Validation Step 2 (Agreement Check)
+function validateAgreement() {
+    const checkbox = document.getElementById('videoPromise');
+    if (!checkbox.checked) {
+        alert("⚠️ You must agree to provide a Video Review to get this free offer.");
+        // Shake animation effect (Optional visual feedback)
+        checkbox.parentElement.style.animation = "shake 0.3s";
+        setTimeout(() => checkbox.parentElement.style.animation = "", 300);
+        return;
+    }
+    nextStep(3);
+}
+
+// Modal Functions
+function openModal() { document.getElementById('orderModal').classList.add('active'); }
+function closeModal() { document.getElementById('orderModal').classList.remove('active'); }
+
+// Connect to Badge
+document.addEventListener("DOMContentLoaded", function() {
+    const offerBadge = document.getElementById('cyber-loot-box');
+    if(offerBadge) {
+        offerBadge.removeAttribute('href'); 
+        offerBadge.addEventListener('click', openModal);
+    }
+    
+    // Submit Handling
+    const form = document.getElementById("free-claim-form");
+    if(form) {
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const btn = form.querySelector(".submit-btn-final");
+            const status = document.getElementById("form-status");
+            
+            btn.innerHTML = "LOCKING DEAL...";
+            
+            const data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    document.querySelector('.deal-box').innerHTML = `
+                        <div style="text-align:center; padding:2rem;">
+                            <h2 style="font-size:3rem;">🤝</h2>
+                            <h3 style="color:var(--theme-color);">DEAL LOCKED!</h3>
+                            <p style="color:#aaa; margin:10px 0;">We have received your request.</p>
+                            <p style="color:#fff; font-size:0.9rem; border:1px dashed #444; padding:10px; margin-top:20px;">
+                                REMINDER: Don't forget the video review later!
+                            </p>
+                            <button onclick="closeModal()" class="next-btn" style="margin-top:20px;">Done</button>
+                        </div>
+                    `;
+                } else {
+                    status.innerHTML = "Error. Try again.";
+                    btn.innerHTML = "TRY AGAIN";
+                }
+            });
+        });
+    }
+});
+
+// CSS Animation for Shake
+const styleSheet = document.createElement("style");
+styleSheet.innerText = "@keyframes shake { 0% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } 100% { transform: translateX(0); } }";
+document.head.appendChild(styleSheet);
