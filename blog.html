@@ -5,20 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Tech Blog & Insights | Nainix Dev</title>
-    <meta name="description" content="Read the latest articles on web development trends, SEO tips, and UI/UX design insights from Nainix Dev.">
-    <meta name="keywords" content="Tech Blog, Web Development Articles, SEO Tips, Coding Trends, Nainix Dev Blog">
+    <meta name="description" content="Explore Nainix Dev's Tech Blog. Read reviews on Web Hosting, Coding Laptops, and learn SEO & Design tips. Stay updated with the latest tech trends.">
+    <meta name="keywords" content="Tech Blog, Web Development Tutorials, Best Hosting Reviews, Coding Laptops 2025, SEO Guide for Developers, UI/UX Design Tips">
+    <meta name="author" content="Abhishek Kumar">
     
     <link rel="canonical" href="https://nainix.xyz/blog.html">
     
     <meta property="og:title" content="Nainix Dev Blog - Tech Insights">
-    <meta property="og:description" content="Stay updated with the latest in technology and web development.">
+    <meta property="og:description" content="Read expert articles on Web Development, Hosting Reviews, and Design.">
     <meta property="og:image" content="https://nainix.xyz/image/nainixDevLogo.png">
     <meta property="og:url" content="https://nainix.xyz/blog.html">
 
     <link rel="icon" href="image/nainixDevBlackLogo.png" type="image/png">
     <link rel="stylesheet" href="style.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body class="body">
+    
+    <div class="scroll-progress"></div>
+
     <div id="preloader">
         <div class="loader-container">
             <div class="loader-ring"></div>
@@ -28,6 +34,7 @@
     </div>
     <div class="cursor-dot"></div>
     <div class="cursor-circle"></div>
+
     <nav class="nav">
         <div class="logo">
             <img src="image/nainixDevLogo.png" alt="Nainix Dev Logo" class="logo-img">
@@ -50,28 +57,32 @@
         </ul>
     </nav>
 
-    <section style="padding: 0 1rem;">
-        <div class="blog-filter-area">
-    <input type="text" id="searchInput" class="search-box" placeholder="Search articles (e.g., Python, Hosting)...">
-    
-    <button class="category-btn active" data-filter="all">All</button>
-    <button class="category-btn" data-filter="review">Reviews</button>
-    <button class="category-btn" data-filter="coding">Coding</button>
-    <button class="category-btn" data-filter="design">Design</button>
-</div>
+    <section style="padding: 2rem 1rem 0 1rem; margin-top: 20px;">
+        <div class="blog-filter-area" style="text-align: center; margin-bottom: 2rem;">
+            <input type="text" id="searchInput" class="search-box" placeholder="Search articles (e.g., Python, Hosting)..." style="padding: 10px; width: 100%; max-width: 400px; border-radius: 5px; border: 1px solid #333; background: #111; color: white; margin-bottom: 15px;">
+            
+            <div class="filter-buttons">
+                <button class="category-btn active" onclick="filterBlog('all')">All</button>
+                <button class="category-btn" onclick="filterBlog('review')">Reviews</button>
+                <button class="category-btn" onclick="filterBlog('coding')">Coding</button>
+                <button class="category-btn" onclick="filterBlog('design')">Design</button>
+            </div>
+        </div>
     </section>
 
-    <section style="padding: 0 1.5rem;">
-        <article class="featured-post" data-category="review">
-            <span class="featured-badge">🔥 HOT DEAL</span>
-            <img src="https://tse2.mm.bing.net/th/id/OIP.dDAnqs4B-dsqt8ymMhIX1QHaEK?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Hostinger Deal 2025" class="featured-img">
-            <div class="featured-content">
-                <span class="blog-tag">Web Hosting Review</span>
-                <h3>Best Web Hosting for Students in 2025 (70% OFF)</h3>
-                <p style="color: #aaa; margin-bottom: 1.5rem;">
-                    Career shuru kar rahe ho? Toh mehngi hosting mat lo. Jaaniye kyun Hostinger students ke liye No.1 choice hai.
+    <section style="padding: 0 1.5rem; max-width: 1200px; margin: 0 auto;">
+        <article class="featured-post blog-item" data-category="review" style="display: flex; flex-wrap: wrap; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 15px; overflow: hidden; margin-bottom: 3rem;">
+            <div style="flex: 1; min-width: 300px; position: relative;">
+                <span class="featured-badge" style="position: absolute; top: 10px; left: 10px; background: #ff0000; color: white; padding: 5px 10px; font-size: 0.8rem; font-weight: bold; border-radius: 5px;">🔥 HOT DEAL</span>
+                <img src="https://assets.hostinger.com/images/og-image-en-d3457a4d56.png" alt="Hostinger Deal 2025" class="featured-img" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="featured-content" style="flex: 1; padding: 2rem; display: flex; flex-direction: column; justify-content: center;">
+                <span class="blog-tag" style="color: var(--theme-color); font-size: 0.9rem; margin-bottom: 0.5rem;">Web Hosting Review</span>
+                <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Best Web Hosting for Students in 2025 (70% OFF)</h3>
+                <p style="color: #aaa; margin-bottom: 1.5rem; line-height: 1.6;">
+                    Career shuru kar rahe ho? Toh mehngi hosting mat lo. Jaaniye kyun Hostinger students ke liye No.1 choice hai aur kaise paise bachayein.
                 </p>
-                <a href="blog-view.html?id=web-hosting" class="btn2" style="display:inline-block; text-align:center;">
+                <a href="blog-view.html?id=web-hosting" class="btn2" style="display:inline-block; text-align:center; width: fit-content;">
                     Read Review & Get Offer
                 </a>
             </div>
@@ -84,53 +95,53 @@
             <span class="achiv">Insights</span>
         </h2>
         
-        <div class="project-grid">
+        <div class="project-grid" id="blogGrid">
             
-            <article class="blog-card" data-category="review">
+            <article class="blog-card blog-item" data-category="review" style="background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border-color);">
                 <a href="blog-view.html?id=laptop-2025">
-                    <img src="https://m.media-amazon.com/images/I/71TPda7cwUL._SL1500_.jpg" alt="Best Laptop for Coding" class="blog-thumb">
+                    <img src="https://m.media-amazon.com/images/I/71TPda7cwUL._SL1500_.jpg" alt="Best Laptop for Coding" class="blog-thumb" style="width: 100%; height: 200px; object-fit: cover;">
                 </a>
-                <div class="blog-details">
-                    <span class="blog-tag">Gadget Review</span>
-                    <h3 class="blog-title">Top 5 Laptops for Coding Under ₹50k</h3>
-                    <p style="color:#888; font-size:0.9rem;">
+                <div class="blog-details" style="padding: 1.5rem;">
+                    <span class="blog-tag" style="color: var(--theme-color); font-size: 0.8rem;">Gadget Review</span>
+                    <h3 class="blog-title" style="margin: 0.5rem 0 1rem; font-size: 1.2rem;">Top 5 Laptops for Coding Under ₹50k</h3>
+                    <p style="color:#888; font-size:0.9rem; margin-bottom: 1rem;">
                         B.Tech students ke liye heavy performance laptops jo budget mein fit hon.
                     </p>
-                    <div class="blog-meta">
+                    <div class="blog-meta" style="font-size: 0.8rem; color: #666; display: flex; justify-content: space-between;">
                         <time datetime="2025-11-30">Nov 30, 2025</time>
                         <span>5 Min Read</span>
                     </div>
                 </div>
             </article>
 
-            <article class="blog-card" data-category="coding">
+            <article class="blog-card blog-item" data-category="coding" style="background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border-color);">
                 <a href="#">
-                    <img src="https://placehold.co/600x400/111/00ff03?text=SEO+Guide" alt="SEO Tips for Developers" class="blog-thumb">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.gC1wWuwQYI21h9Fz9Fv6tgHaEK?rs=1&pid=ImgDetMain" alt="SEO Tips for Developers" class="blog-thumb" style="width: 100%; height: 200px; object-fit: cover;">
                 </a>
-                <div class="blog-details">
-                    <span class="blog-tag">Web Development</span>
-                    <h3 class="blog-title">A Developer's Guide to Basic SEO</h3>
-                    <p style="color:#888; font-size:0.9rem;">
+                <div class="blog-details" style="padding: 1.5rem;">
+                    <span class="blog-tag" style="color: var(--theme-color); font-size: 0.8rem;">Web Development</span>
+                    <h3 class="blog-title" style="margin: 0.5rem 0 1rem; font-size: 1.2rem;">A Developer's Guide to Basic SEO</h3>
+                    <p style="color:#888; font-size:0.9rem; margin-bottom: 1rem;">
                         SEO sirf marketing walo ka kaam nahi hai. Code likhte waqt hi ranking fix karein.
                     </p>
-                    <div class="blog-meta">
+                    <div class="blog-meta" style="font-size: 0.8rem; color: #666; display: flex; justify-content: space-between;">
                         <time datetime="2025-12-10">Dec 10, 2025</time>
                         <span>7 Min Read</span>
                     </div>
                 </div>
             </article>
 
-            <article class="blog-card" data-category="design">
+            <article class="blog-card blog-item" data-category="design" style="background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border-color);">
                 <a href="#">
-                    <img src="https://placehold.co/600x400/111/00ff03?text=UI+vs+UX" alt="UI vs UX Design" class="blog-thumb">
+                    <img src="https://cdn.dribbble.com/users/5031392/screenshots/15467520/media/c8cf26d705c87f98d407675e0df07270.png?resize=400x300&vertical=center" alt="UI vs UX Design" class="blog-thumb" style="width: 100%; height: 200px; object-fit: cover;">
                 </a>
-                <div class="blog-details">
-                    <span class="blog-tag">Design</span>
-                    <h3 class="blog-title">UI vs. UX: What's the Difference?</h3>
-                    <p style="color:#888; font-size:0.9rem;">
+                <div class="blog-details" style="padding: 1.5rem;">
+                    <span class="blog-tag" style="color: var(--theme-color); font-size: 0.8rem;">Design</span>
+                    <h3 class="blog-title" style="margin: 0.5rem 0 1rem; font-size: 1.2rem;">UI vs. UX: What's the Difference?</h3>
+                    <p style="color:#888; font-size:0.9rem; margin-bottom: 1rem;">
                         Design sirf sundar dikhna nahi hota. Jaaniye kaise user experience sales badhata hai.
                     </p>
-                    <div class="blog-meta">
+                    <div class="blog-meta" style="font-size: 0.8rem; color: #666; display: flex; justify-content: space-between;">
                         <time datetime="2025-12-12">Dec 12, 2025</time>
                         <span>4 Min Read</span>
                     </div>
@@ -139,6 +150,7 @@
 
         </div>
     </section>
+
     <a href="https://wa.me/918544057504?text=Hello%20Nainix%20Dev!%20I%20enjoyed%20reading%20your%20blog." target="_blank">
         <img class="whatsapp-button" src="image/whatsappLogo.png" alt="WhatsApp Link">
     </a>
@@ -175,5 +187,311 @@
         </div>
     </footer>
     <script src="script.js"></script>
+
+    <script>
+        function filterBlog(category) {
+            // Update Active Button
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.innerText.toLowerCase() === category || (category === 'all' && btn.innerText === 'All')) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Filter Items
+            const items = document.querySelectorAll('.blog-item');
+            items.forEach(item => {
+                const itemCat = item.getAttribute('data-category');
+                if(category === 'all' || itemCat === category) {
+                    item.style.display = 'block'; // Or flex for featured
+                    if(item.classList.contains('featured-post')) item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Search Functionality
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            const val = this.value.toLowerCase();
+            const items = document.querySelectorAll('.blog-item');
+            
+            items.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                if(text.includes(val)) {
+                    item.style.display = 'block';
+                    if(item.classList.contains('featured-post')) item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+
+    <a href="https://wa.me/918544057504?text=I%20want%20to%20claim%20the%20FREE%20WEBSITE%20offer%20before%202026!" target="_blank" id="cyber-loot-box">
+    <div class="glitch-wrapper">
+        <span class="loot-title">⚠️ SPECIAL DROP</span>
+        <span class="loot-offer">FREE WEBSITE</span>
+        <span class="loot-sub">ORDER BEFORE 01 JAN 2026</span>
+        <div id="loot-timer">LOADING...</div>
+        <span class="click-hint">[ CLICK TO CLAIM ]</span>
+    </div>
+    </a>
+
+    <style>
+        /* --- 1. CORE THEME & VISUALS --- */
+        :root { --theme-color: #fce300 !important; }
+        
+        body {
+            background-color: #050505 !important;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 255, 0.03) 1px, transparent 1px) !important;
+            background-size: 40px 40px !important;
+            overflow-x: hidden;
+        }
+
+        /* Filter Button Styles */
+        .category-btn {
+            background: transparent;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 8px 16px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        .category-btn:hover, .category-btn.active {
+            background: var(--theme-color);
+            color: #000;
+            border-color: var(--theme-color);
+        }
+
+        /* Neon Star on Logo */
+        .logo { position: relative; }
+        .logo::after {
+            content: '✦'; position: absolute; font-size: 25px; color: #fce300;
+            top: -15px; right: -15px; text-shadow: 0 0 10px #ff00ff;
+            animation: spinSparkle 3s infinite linear;
+        }
+
+        /* Cyber Snow */
+        .cyber-snow {
+            position: fixed; width: 4px; height: 4px; background: #00ffff;
+            box-shadow: 0 0 5px #00ffff; top: -10px; z-index: 9999;
+            pointer-events: none; animation: cyberFall linear forwards;
+        }
+        .cyber-snow.pink { background: #ff00ff; box-shadow: 0 0 5px #ff00ff; }
+
+        /* --- 2. THE OFFER BOX STYLING --- */
+        #cyber-loot-box {
+            position: fixed; bottom: 20px; right: 20px; z-index: 10000;
+            text-decoration: none; cursor: pointer;
+            transition: transform 0.2s;
+        }
+        #cyber-loot-box:hover { transform: scale(1.05); }
+
+        .glitch-wrapper {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #fce300;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 5px 5px 0px #ff00ff;
+            font-family: 'Courier New', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Moving Shine Effect */
+        .glitch-wrapper::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        .loot-title { display: block; font-size: 0.8rem; color: #ff00ff; font-weight: bold; animation: blink 1s infinite; }
+        .loot-offer { display: block; font-size: 1.4rem; color: #fce300; font-weight: 900; text-shadow: 0 0 10px #fce300; margin: 5px 0; }
+        .loot-sub { display: block; font-size: 0.7rem; color: #00ffff; letter-spacing: 1px; }
+        
+        #loot-timer {
+            background: #222; color: #fff; margin-top: 5px; padding: 2px 5px;
+            font-size: 1rem; border: 1px solid #555; font-weight: bold;
+        }
+        
+        .click-hint { display: block; font-size: 0.7rem; color: #aaa; margin-top: 5px; }
+
+        /* Animations */
+        @keyframes spinSparkle { 0% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(180deg) scale(1.2); } 100% { transform: rotate(360deg) scale(1); } }
+        @keyframes cyberFall { to { transform: translateY(105vh); opacity: 0; } }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+        @keyframes shine { 0% { left: -100%; } 20% { left: 100%; } 100% { left: 100%; } }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar-thumb { background: linear-gradient(#fce300, #ff00ff) !important; }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // 1. Snow Logic
+            function createCyberSnow() {
+                const snow = document.createElement('div');
+                snow.classList.add('cyber-snow');
+                if(Math.random() > 0.5) snow.classList.add('pink');
+                snow.style.left = Math.random() * 100 + 'vw';
+                snow.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                document.body.appendChild(snow);
+                setTimeout(() => { snow.remove(); }, 7000);
+            }
+            setInterval(createCyberSnow, 150);
+
+            // 2. Offer Countdown Logic
+            const timerEl = document.getElementById('loot-timer');
+            const deadline = new Date("Jan 1, 2026 00:00:00").getTime();
+            
+            const countdownInterval = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = deadline - now;
+
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    timerEl.innerHTML = "OFFER EXPIRED";
+                    document.querySelector('.loot-offer').style.color = "red";
+                    document.querySelector('.loot-offer').innerText = "MISSED IT!";
+                } else {
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    
+                    // Format: 05d 12h 30m 10s
+                    timerEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                }
+            }, 1000);
+        });
+    </script>
+    <div id="orderModal" class="winter-overlay">
+        <div class="winter-box">
+            <button class="winter-close" onclick="closeModal()">×</button>
+            
+            <div class="snowflake-decor">❄️</div>
+            <div class="snowflake-decor s2">❄️</div>
+
+            <div id="reward-screen" style="display: none;">
+                <div class="reward-card">
+                    <div class="reward-header">OFFER UNLOCKED</div>
+                    <div class="reward-body">
+                        <div class="big-check">✔</div>
+                        <h3>Request Confirmed!</h3>
+                        <p>Your Free Website slot is booked.</p>
+                        
+                        <div class="contact-promise">
+                            <span class="icon">📞</span>
+                            <span>We will contact you within <strong>24 HOURS</strong></span>
+                        </div>
+                        
+                        <p class="email-note" style="color: #ccc; margin-top: 10px; font-size: 0.85rem;">
+                            Check your Email (including Spam) for details.
+                        </p>
+                    </div>
+                    <button onclick="closeModal()" class="claim-btn">Awesome!</button>
+                </div>
+            </div>
+
+            <form id="winter-form">
+                
+                <div class="step-progress">
+                    <div class="step-dot active">1</div>
+                    <div class="step-line"></div>
+                    <div class="step-dot">2</div>
+                    <div class="step-line"></div>
+                    <div class="step-dot">3</div>
+                </div>
+
+                <div class="form-step active" id="step1">
+                    <h3>Let's Connect ❄️</h3>
+                    <p>Enter details to verify eligibility.</p>
+                    
+                    <div class="input-snow">
+                        <label>Full Name</label>
+                        <input type="text" id="fname" name="name" placeholder="Enter full name" required>
+                    </div>
+
+                    <div class="input-snow">
+                        <label>Email Address</label>
+                        <input type="email" id="femail" name="email" placeholder="name@example.com" required>
+                        <span class="error-msg" id="emailError">Invalid Email Address</span>
+                    </div>
+
+                    <div class="input-snow">
+                        <label>Phone Number (WhatsApp)</label>
+                        <input type="tel" id="fphone" name="phone" placeholder="9876543210" maxlength="10" required>
+                        <span class="error-msg" id="phoneError">Enter valid 10-digit number</span>
+                    </div>
+
+                    <button type="button" class="winter-btn" onclick="validateStep1()">Next Step ➔</button>
+                </div>
+
+                <div class="form-step" id="step2">
+                    <h3>Your Vision 🚀</h3>
+                    <p>What are we building today?</p>
+                    
+                    <div class="input-snow">
+                        <label>Project Type</label>
+                        <select name="category" required>
+                            <option value="Portfolio">Personal Portfolio</option>
+                            <option value="Business">Business Website</option>
+                            <option value="E-commerce">Small Shop / Store</option>
+                            <option value="Blogging">Blogging Site</option>
+                        </select>
+                    </div>
+
+                    <div class="input-snow">
+                        <label>Reference / Idea</label>
+                        <textarea name="message" placeholder="Describe your idea or paste a link..." rows="3" required></textarea>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" class="winter-btn-outline" onclick="showStep(1)">Back</button>
+                        <button type="button" class="winter-btn" onclick="showStep(3)">Next Step ➔</button>
+                    </div>
+                </div>
+
+                <div class="form-step" id="step3">
+                    <h3>Final Deal 🤝</h3>
+                    <p>Zero Cost. Just one small promise.</p>
+                    
+                    <div class="deal-ticket">
+                        <div class="ticket-row">
+                            <span>Development Cost:</span>
+                            <span class="cut-price">₹15,000</span>
+                        </div>
+                        <div class="ticket-row highlight">
+                            <span>Your Price:</span>
+                            <span class="free-text">FREE</span>
+                        </div>
+                        <hr style="border-color: #333; margin: 10px 0;">
+                        <p class="term-text">Required: <strong>1 Video Review</strong> after delivery.</p>
+                    </div>
+
+                    <label class="snow-checkbox">
+                        <input type="checkbox" id="agreeBox">
+                        <span>I promise to send a Video Review.</span>
+                    </label>
+
+                    <div class="btn-group">
+                        <button type="button" class="winter-btn-outline" onclick="showStep(2)">Back</button>
+                        <button type="button" onclick="submitWinterForm(this)" class="winter-btn finish-btn">CLAIM OFFER 🎁</button>
+                    </div>
+                    <p id="submit-loading" style="display:none; text-align:center; margin-top:10px; color:#00ffff; font-size:0.9rem;">
+                        Generating Order ID...
+                    </p>
+                </div>
+
+            </form>
+        </div>
+    </div>
 </body>
 </html>

@@ -2,7 +2,6 @@
 // ========= SAFE NAVIGATION TOGGLE ======== //
 // ========================================= //
 
-// Hum pehle check karenge ki element exist karta hai ya nahi
 const navToggle = document.getElementById('navToggle');
 if (navToggle) {
     navToggle.addEventListener('click', () => {
@@ -19,11 +18,7 @@ if (navToggle) {
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.cardText, .welcome, .iconCard, .aboutMe, .mission, .values, .data, .projects, .testimonials, .service, .portfolio, .contact, .gallery, .footer, .thankyou-section');
     
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
     
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -49,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const statsSection = document.querySelector('.data');
-    // Agar stats section nahi hai (jaise thankyou page par), to code run mat karo
     if (!statsSection) return;
 
     const counters = document.querySelectorAll('.counter-number');
@@ -67,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const updateCounter = () => {
                 const current = +counter.innerText;
-                
                 if (current < target) {
                     counter.innerText = `${Math.ceil(current + increment)}`;
                     setTimeout(updateCounter, 10);
@@ -99,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cursorDot = document.querySelector('.cursor-dot');
     const cursorCircle = document.querySelector('.cursor-circle');
 
-    // Agar HTML me cursor div nahi hain, to return kar jao
     if (!cursorDot || !cursorCircle) return;
 
     let dotX = 0, dotY = 0;
@@ -124,15 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     animateCursor();
 
-    // Added .btn-home for hover effect on Thank You page
     const interactiveElements = document.querySelectorAll('a, button, .project-card, .btn2, .btn3, .card2, .data-card, .btn-home');
     interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursorCircle.classList.add('hover-shrink');
-        });
-        el.addEventListener('mouseleave', () => {
-            cursorCircle.classList.remove('hover-shrink');
-        });
+        el.addEventListener('mouseenter', () => cursorCircle.classList.add('hover-shrink'));
+        el.addEventListener('mouseleave', () => cursorCircle.classList.remove('hover-shrink'));
     });
 });
 
@@ -157,9 +144,8 @@ function toggleAddon(element) {
 }
 
 function updateCost() {
-    // Check if elements exist (Important fix)
     const slider = document.getElementById('pageSlider');
-    if (!slider) return; // Agar slider nahi hai to calculation mat karo
+    if (!slider) return;
 
     const pageCount = parseInt(slider.value);
     document.getElementById('pageCountDisplay').innerText = pageCount;
@@ -174,9 +160,7 @@ function updateCost() {
     if (priceDisplay) priceDisplay.innerText = total.toLocaleString('en-IN');
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    updateCost();
-});
+document.addEventListener('DOMContentLoaded', () => { updateCost(); });
 
 // ========================================= //
 // ========= AJAX FORM SUBMISSION ========== //
@@ -223,9 +207,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    if(form) {
-        form.addEventListener("submit", handleSubmit);
-    }
+    if(form) { form.addEventListener("submit", handleSubmit); }
 });
 
 // ========================================= //
@@ -233,55 +215,40 @@ document.addEventListener("DOMContentLoaded", function() {
 // ========================================= //
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Elements select karein
     const filterButtons = document.querySelectorAll('.category-btn');
     const searchInput = document.getElementById('searchInput');
     const blogCards = document.querySelectorAll('.blog-card, .featured-post');
 
-    // 1. Category Filter Logic
     if (filterButtons.length > 0) {
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Active class purane button se hatayein aur naye par lagayein
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
-
                 const category = button.getAttribute('data-filter');
 
                 blogCards.forEach(card => {
                     const cardCategory = card.getAttribute('data-category');
-                    
-                    // Logic: Agar 'all' hai YA category match ho rahi hai
                     if (category === 'all' || category === cardCategory) {
-                        // FIX: Yahan 'block' nahi, empty string '' use karein.
-                        // Isse browser wapas wahi style uthayega jo CSS file mein hai (Flex/Grid etc.)
                         card.style.display = ''; 
-                        
-                        // Thoda animation smooth karne ke liye
                         card.style.opacity = '0';
                         setTimeout(() => card.style.opacity = '1', 50);
                     } else {
-                        card.style.display = 'none'; // Chhupane ke liye
+                        card.style.display = 'none';
                     }
                 });
             });
         });
     }
 
-    // 2. Search Bar Logic
     if (searchInput) {
         searchInput.addEventListener('keyup', (e) => {
             const searchText = e.target.value.toLowerCase();
-
             blogCards.forEach(card => {
                 const titleElement = card.querySelector('h3');
                 if (titleElement) {
                     const title = titleElement.innerText.toLowerCase();
-                    if (title.includes(searchText)) {
-                        card.style.display = ''; // FIX: Wapas original CSS style use karein
-                    } else {
-                        card.style.display = 'none';
-                    }
+                    if (title.includes(searchText)) card.style.display = '';
+                    else card.style.display = 'none';
                 }
             });
         });
@@ -294,26 +261,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
-    
     if (preloader) {
-        // Thoda wait karein taaki user animation dekh sake (Optional)
         setTimeout(() => {
-            preloader.style.opacity = '0'; // Dhire se gayab karo
-            
-            // Jab gayab ho jaye, tab background se remove kar do
-            setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 500); // 0.5s transition time ke barabar
-        }, 800); // 0.8 seconds ka minimum loading time
+            preloader.style.opacity = '0'; 
+            setTimeout(() => { preloader.style.display = 'none'; }, 500); 
+        }, 800); 
     }
 });
-
-// temp
-
-
-
-
-
 
 // ========================================= //
 // ========= WINTER WIZARD LOGIC (FINAL) === //
@@ -321,8 +275,10 @@ window.addEventListener('load', () => {
 
 // 1. EmailJS Initialize
 (function(){
-    emailjs.init("BrTwSa9S0SWqsPJI5"); // Public Key
-    console.log("✅ EmailJS Ready");
+    if(typeof emailjs !== 'undefined') {
+        emailjs.init("BrTwSa9S0SWqsPJI5"); // Public Key
+        console.log("✅ EmailJS Ready");
+    }
 })();
 
 // 2. Open/Close Modal
@@ -370,28 +326,22 @@ window.showStep = function(stepIndex) {
 window.submitWinterForm = function(btnElement) {
     console.log("🚀 Button Clicked - Starting Process...");
 
-    // Agreement Check
     const agreeBox = document.getElementById('agreeBox');
     if(!agreeBox.checked) {
         alert("⚠️ Please tick the Video Review box.");
         return;
     }
 
-    // UI Updates (Loading)
     const form = document.getElementById('winter-form');
     const loader = document.getElementById('submit-loading');
     
-    btnElement.style.display = 'none'; // Button Chupao
+    btnElement.style.display = 'none'; 
     if(loader) {
         loader.style.display = 'block';
         loader.innerText = "Processing Request...";
     }
 
-    // --- Generate Order ID ---
     const orderID = "ND-" + Math.floor(100000 + Math.random() * 900000);
-    console.log("🆔 Order ID:", orderID);
-
-    // Hidden Input for Order ID
     let oldInput = form.querySelector('input[name="order_id"]');
     if(oldInput) oldInput.remove();
 
@@ -401,31 +351,44 @@ window.submitWinterForm = function(btnElement) {
     idInput.value = orderID;
     form.appendChild(idInput);
 
-    // --- EMAIL SENDING ---
     const serviceID = "nainixdev_freewebsite";
     const templateID = "template_xh8t16o";
 
-    emailjs.sendForm(serviceID, templateID, form)
-        .then(() => {
-            console.log("✅ SUCCESS! Email Sent.");
-            
-            // Hide Form & Show Reward
-            form.style.display = 'none';
-            const rewardScreen = document.getElementById('reward-screen');
-            const rewardBody = document.querySelector('.reward-body');
-            
-            if(rewardBody && !rewardBody.querySelector('.order-id-display')) {
-                const idTag = document.createElement('div');
-                idTag.className = 'order-id-display';
-                idTag.innerHTML = `<p style="margin-top:10px; color:#00ffff; border:1px dashed #00ffff; padding:5px; display:inline-block;">Order ID: <strong>${orderID}</strong></p>`;
-                rewardBody.insertBefore(idTag, rewardBody.querySelector('.contact-promise'));
-            }
-            if(rewardScreen) rewardScreen.style.display = 'block';
+    if(typeof emailjs !== 'undefined') {
+        emailjs.sendForm(serviceID, templateID, form)
+            .then(() => {
+                form.style.display = 'none';
+                const rewardScreen = document.getElementById('reward-screen');
+                const rewardBody = document.querySelector('.reward-body');
+                
+                if(rewardBody && !rewardBody.querySelector('.order-id-display')) {
+                    const idTag = document.createElement('div');
+                    idTag.className = 'order-id-display';
+                    idTag.innerHTML = `<p style="margin-top:10px; color:#00ffff; border:1px dashed #00ffff; padding:5px; display:inline-block;">Order ID: <strong>${orderID}</strong></p>`;
+                    rewardBody.insertBefore(idTag, rewardBody.querySelector('.contact-promise'));
+                }
+                if(rewardScreen) rewardScreen.style.display = 'block';
 
-        }, (err) => {
-            console.error("❌ FAILED:", err);
-            alert("Error: Email nahi gaya. " + JSON.stringify(err));
-            btnElement.style.display = 'block';
-            if(loader) loader.style.display = 'none';
-        });
+            }, (err) => {
+                console.error("❌ FAILED:", err);
+                alert("Error: Email nahi gaya. " + JSON.stringify(err));
+                btnElement.style.display = 'block';
+                if(loader) loader.style.display = 'none';
+            });
+    } else {
+        alert("Error: Email system load nahi hua. Page refresh karein.");
+    }
 };
+
+// ========================================= //
+// ========= SCROLL PROGRESS BAR ========== //
+// ========================================= //
+
+window.addEventListener('scroll', () => {
+    const scrollTotal = document.documentElement.scrollTop;
+    const heightWin = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollValue = (scrollTotal / heightWin) * 100;
+    
+    const bar = document.querySelector('.scroll-progress');
+    if(bar) bar.style.width = scrollValue + "%";
+});

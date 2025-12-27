@@ -68,6 +68,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body class="body">
+    <div class="scroll-progress"></div>
     <div id="preloader">
         <div class="loader-container">
             <div class="loader-ring"></div>
@@ -109,14 +110,14 @@
         
         <p class="cT3" style="max-width: 700px; margin: 1.5rem auto;">
             Stop losing customers to your competitors. Get a <b>High-Speed, Mobile-Friendly Website</b> that works 24/7 to grow your business.
-            <br><br>
-            <!-- <span style="color: #00ff06; font-weight: bold; font-size: 1.1rem; border: 1px solid #00ff06; padding: 5px 10px; border-radius: 5px;">
-                Packages Start from ₹4,999 Only
-            </span> -->
         </p>
         <div>
-<a href="https://wa.me/918544057504?text=Hi%20Abhishek%2C%20I%20am%20interested%20in%20the%20%E2%82%B94%2C999%20Website%20Offer.%20Please%20guide%20me." target="_blank">            <button class="btn2">🚀 Launch My Website</button></a>
-            <a href="portfolio.html"><button class="btn3">View Success Stories</button></a>
+            <a href="https://wa.me/918544057504?text=Hi%20Abhishek%2C%20I%20am%20interested%20in%20the%20%E2%82%B94%2C999%20Website%20Offer.%20Please%20guide%20me." target="_blank" class="btn2" style="text-decoration: none; display: inline-block;">
+                🚀 Launch My Website
+            </a>
+            <a href="portfolio.html" class="btn3" style="text-decoration: none; display: inline-block;">
+                View Success Stories
+            </a>
         </div>
 
         <p style="font-size: 0.8rem; color: #666; margin-top: 1rem;">
@@ -142,7 +143,7 @@
         <div class="project-grid">
             <div class="project-card">
                 <a href="portfolio.html">
-                <img src="image\Pink and White Minimalist E-Commerce Presentation.png" alt ="E-commerce Platform Project">
+                <img src="image/Pink and White Minimalist E-Commerce Presentation.png" alt ="E-commerce Platform Project">
                 </a>
                 <h3>E-commerce Platform</h3>
                 <p>Built a seamless online store with React and secure payment integration. Increased client sales by 20%.</p>
@@ -150,7 +151,7 @@
             </div>
             <div class="project-card">
                 <a href="portfolio.html">
-                <img src="image\Black and Pink Modern Portfolio Presentation (1).png" alt="Artist Portfolio Project">
+                <img src="image/Black and Pink Modern Portfolio Presentation (1).png" alt="Artist Portfolio Project">
                 </a>
                 <h3>Artist Portfolio</h3>
                 <p>Designed a visually stunning portfolio for a local artist, optimized for mobile and desktop.</p>
@@ -259,8 +260,6 @@
     </footer>
     <script src="script.js"></script>
 
-
-
     <a href="https://wa.me/918544057504?text=I%20want%20to%20claim%20the%20FREE%20WEBSITE%20offer%20before%202026!" target="_blank" id="cyber-loot-box">
     <div class="glitch-wrapper">
         <span class="loot-title">⚠️ SPECIAL DROP</span>
@@ -269,244 +268,289 @@
         <div id="loot-timer">LOADING...</div>
         <span class="click-hint">[ CLICK TO CLAIM ]</span>
     </div>
-</a>
+    </a>
 
-<style>
-    /* --- 1. CORE THEME & VISUALS --- */
-    :root { --theme-color: #fce300 !important; }
-    
-    body {
-        background-color: #050505 !important;
-        background-image: 
-            linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 0, 255, 0.03) 1px, transparent 1px) !important;
-        background-size: 40px 40px !important;
-        overflow-x: hidden;
-    }
-
-    /* Neon Star on Logo */
-    .logo { position: relative; }
-    .logo::after {
-        content: '✦'; position: absolute; font-size: 25px; color: #fce300;
-        top: -15px; right: -15px; text-shadow: 0 0 10px #ff00ff;
-        animation: spinSparkle 3s infinite linear;
-    }
-
-    /* Cyber Snow */
-    .cyber-snow {
-        position: fixed; width: 4px; height: 4px; background: #00ffff;
-        box-shadow: 0 0 5px #00ffff; top: -10px; z-index: 9999;
-        pointer-events: none; animation: cyberFall linear forwards;
-    }
-    .cyber-snow.pink { background: #ff00ff; box-shadow: 0 0 5px #ff00ff; }
-
-    /* --- 2. THE OFFER BOX STYLING --- */
-    #cyber-loot-box {
-        position: fixed; bottom: 20px; right: 20px; z-index: 10000;
-        text-decoration: none; cursor: pointer;
-        transition: transform 0.2s;
-    }
-    #cyber-loot-box:hover { transform: scale(1.05); }
-
-    .glitch-wrapper {
-        background: rgba(0, 0, 0, 0.9);
-        border: 2px solid #fce300;
-        padding: 15px;
-        text-align: center;
-        box-shadow: 5px 5px 0px #ff00ff;
-        font-family: 'Courier New', monospace;
-        position: relative;
-        overflow: hidden;
-    }
-
-    /* Moving Shine Effect */
-    .glitch-wrapper::before {
-        content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        animation: shine 3s infinite;
-    }
-
-    .loot-title { display: block; font-size: 0.8rem; color: #ff00ff; font-weight: bold; animation: blink 1s infinite; }
-    .loot-offer { display: block; font-size: 1.4rem; color: #fce300; font-weight: 900; text-shadow: 0 0 10px #fce300; margin: 5px 0; }
-    .loot-sub { display: block; font-size: 0.7rem; color: #00ffff; letter-spacing: 1px; }
-    
-    #loot-timer {
-        background: #222; color: #fff; margin-top: 5px; padding: 2px 5px;
-        font-size: 1rem; border: 1px solid #555; font-weight: bold;
-    }
-    
-    .click-hint { display: block; font-size: 0.7rem; color: #aaa; margin-top: 5px; }
-
-    /* Animations */
-    @keyframes spinSparkle { 0% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(180deg) scale(1.2); } 100% { transform: rotate(360deg) scale(1); } }
-    @keyframes cyberFall { to { transform: translateY(105vh); opacity: 0; } }
-    @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
-    @keyframes shine { 0% { left: -100%; } 20% { left: 100%; } 100% { left: 100%; } }
-
-    /* Scrollbar */
-    ::-webkit-scrollbar-thumb { background: linear-gradient(#fce300, #ff00ff) !important; }
-</style>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
+    <style>
+        /* --- 1. CORE THEME & VISUALS --- */
+        :root { --theme-color: #fce300 !important; }
         
-        // 1. Snow Logic
-        function createCyberSnow() {
-            const snow = document.createElement('div');
-            snow.classList.add('cyber-snow');
-            if(Math.random() > 0.5) snow.classList.add('pink');
-            snow.style.left = Math.random() * 100 + 'vw';
-            snow.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            document.body.appendChild(snow);
-            setTimeout(() => { snow.remove(); }, 7000);
+        body {
+            background-color: #050505 !important;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 255, 0.03) 1px, transparent 1px) !important;
+            background-size: 40px 40px !important;
+            overflow-x: hidden;
         }
-        setInterval(createCyberSnow, 150);
 
-        // 2. Offer Countdown Logic
-        const timerEl = document.getElementById('loot-timer');
-        const deadline = new Date("Jan 1, 2026 00:00:00").getTime();
+        /* Neon Star on Logo */
+        .logo { position: relative; }
+        .logo::after {
+            content: '✦'; position: absolute; font-size: 25px; color: #fce300;
+            top: -15px; right: -15px; text-shadow: 0 0 10px #ff00ff;
+            animation: spinSparkle 3s infinite linear;
+        }
+
+        /* Cyber Snow */
+        .cyber-snow {
+            position: fixed; width: 4px; height: 4px; background: #00ffff;
+            box-shadow: 0 0 5px #00ffff; top: -10px; z-index: 9999;
+            pointer-events: none; animation: cyberFall linear forwards;
+        }
+        .cyber-snow.pink { background: #ff00ff; box-shadow: 0 0 5px #ff00ff; }
+
+        /* --- 2. THE OFFER BOX STYLING --- */
+        #cyber-loot-box {
+            position: fixed; bottom: 20px; right: 20px; z-index: 10000;
+            text-decoration: none; cursor: pointer;
+            transition: transform 0.2s;
+        }
+        #cyber-loot-box:hover { transform: scale(1.05); }
+
+        .glitch-wrapper {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #fce300;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 5px 5px 0px #ff00ff;
+            font-family: 'Courier New', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Moving Shine Effect */
+        .glitch-wrapper::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        .loot-title { display: block; font-size: 0.8rem; color: #ff00ff; font-weight: bold; animation: blink 1s infinite; }
+        .loot-offer { display: block; font-size: 1.4rem; color: #fce300; font-weight: 900; text-shadow: 0 0 10px #fce300; margin: 5px 0; }
+        .loot-sub { display: block; font-size: 0.7rem; color: #00ffff; letter-spacing: 1px; }
         
-        const countdownInterval = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = deadline - now;
+        #loot-timer {
+            background: #222; color: #fff; margin-top: 5px; padding: 2px 5px;
+            font-size: 1rem; border: 1px solid #555; font-weight: bold;
+        }
+        
+        .click-hint { display: block; font-size: 0.7rem; color: #aaa; margin-top: 5px; }
 
-            if (distance < 0) {
-                clearInterval(countdownInterval);
-                timerEl.innerHTML = "OFFER EXPIRED";
-                document.querySelector('.loot-offer').style.color = "red";
-                document.querySelector('.loot-offer').innerText = "MISSED IT!";
-            } else {
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
-                // Format: 05d 12h 30m 10s
-                timerEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        /* Animations */
+        @keyframes spinSparkle { 0% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(180deg) scale(1.2); } 100% { transform: rotate(360deg) scale(1); } }
+        @keyframes cyberFall { to { transform: translateY(105vh); opacity: 0; } }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+        @keyframes shine { 0% { left: -100%; } 20% { left: 100%; } 100% { left: 100%; } }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar-thumb { background: linear-gradient(#fce300, #ff00ff) !important; }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // 1. Snow Logic
+            function createCyberSnow() {
+                const snow = document.createElement('div');
+                snow.classList.add('cyber-snow');
+                if(Math.random() > 0.5) snow.classList.add('pink');
+                snow.style.left = Math.random() * 100 + 'vw';
+                snow.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                document.body.appendChild(snow);
+                setTimeout(() => { snow.remove(); }, 7000);
             }
-        }, 1000);
-    });
-</script>
-<div id="orderModal" class="winter-overlay">
-    <div class="winter-box">
-        <button class="winter-close" onclick="closeModal()">×</button>
-        
-        <div class="snowflake-decor">❄️</div>
-        <div class="snowflake-decor s2">❄️</div>
+            setInterval(createCyberSnow, 150);
 
-        <div id="reward-screen" style="display: none;">
-            <div class="reward-card">
-                <div class="reward-header">OFFER UNLOCKED</div>
-                <div class="reward-body">
-                    <div class="big-check">✔</div>
-                    <h3>Request Confirmed!</h3>
-                    <p>Your Free Website slot is booked.</p>
+            // 2. Offer Countdown Logic
+            const timerEl = document.getElementById('loot-timer');
+            const deadline = new Date("Jan 1, 2026 00:00:00").getTime();
+            
+            const countdownInterval = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = deadline - now;
+
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    timerEl.innerHTML = "OFFER EXPIRED";
+                    document.querySelector('.loot-offer').style.color = "red";
+                    document.querySelector('.loot-offer').innerText = "MISSED IT!";
+                } else {
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
                     
-                    <div class="contact-promise">
-                        <span class="icon">📞</span>
-                        <span>We will contact you within <strong>24 HOURS</strong></span>
+                    // Format: 05d 12h 30m 10s
+                    timerEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                }
+            }, 1000);
+        });
+    </script>
+
+    <div id="orderModal" class="winter-overlay">
+        <div class="winter-box">
+            <button class="winter-close" onclick="closeModal()">×</button>
+            
+            <div class="snowflake-decor">❄️</div>
+            <div class="snowflake-decor s2">❄️</div>
+
+            <div id="reward-screen" style="display: none;">
+                <div class="reward-card">
+                    <div class="reward-header">OFFER UNLOCKED</div>
+                    <div class="reward-body">
+                        <div class="big-check">✔</div>
+                        <h3>Request Confirmed!</h3>
+                        <p>Your Free Website slot is booked.</p>
+                        
+                        <div class="contact-promise">
+                            <span class="icon">📞</span>
+                            <span>We will contact you within <strong>24 HOURS</strong></span>
+                        </div>
+                        
+                        <p class="email-note" style="color: #ccc; margin-top: 10px; font-size: 0.85rem;">
+                            Check your Email (including Spam) for details.
+                        </p>
                     </div>
+                    <button onclick="closeModal()" class="claim-btn">Awesome!</button>
+                </div>
+            </div>
+
+            <form id="winter-form">
+                
+                <div class="step-progress">
+                    <div class="step-dot active">1</div>
+                    <div class="step-line"></div>
+                    <div class="step-dot">2</div>
+                    <div class="step-line"></div>
+                    <div class="step-dot">3</div>
+                </div>
+
+                <div class="form-step active" id="step1">
+                    <h3>Let's Connect ❄️</h3>
+                    <p>Enter details to verify eligibility.</p>
                     
-                    <p class="email-note" style="color: #ccc; margin-top: 10px; font-size: 0.85rem;">
-                        Check your Email (including Spam) for details.
+                    <div class="input-snow">
+                        <label>Full Name</label>
+                        <input type="text" id="fname" name="name" placeholder="Enter full name" required>
+                    </div>
+
+                    <div class="input-snow">
+                        <label>Email Address</label>
+                        <input type="email" id="femail" name="email" placeholder="name@example.com" required>
+                        <span class="error-msg" id="emailError">Invalid Email Address</span>
+                    </div>
+
+                    <div class="input-snow">
+                        <label>Phone Number (WhatsApp)</label>
+                        <input type="tel" id="fphone" name="phone" placeholder="9876543210" maxlength="10" required>
+                        <span class="error-msg" id="phoneError">Enter valid 10-digit number</span>
+                    </div>
+
+                    <button type="button" class="winter-btn" onclick="validateStep1()">Next Step ➔</button>
+                </div>
+
+                <div class="form-step" id="step2">
+                    <h3>Your Vision 🚀</h3>
+                    <p>What are we building today?</p>
+                    
+                    <div class="input-snow">
+                        <label>Project Type</label>
+                        <select name="category" required>
+                            <option value="Portfolio">Personal Portfolio</option>
+                            <option value="Business">Business Website</option>
+                            <option value="E-commerce">Small Shop / Store</option>
+                            <option value="Blogging">Blogging Site</option>
+                        </select>
+                    </div>
+
+                    <div class="input-snow">
+                        <label>Reference / Idea</label>
+                        <textarea name="message" placeholder="Describe your idea or paste a link..." rows="3" required></textarea>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" class="winter-btn-outline" onclick="showStep(1)">Back</button>
+                        <button type="button" class="winter-btn" onclick="showStep(3)">Next Step ➔</button>
+                    </div>
+                </div>
+
+                <div class="form-step" id="step3">
+                    <h3>Final Deal 🤝</h3>
+                    <p>Zero Cost. Just one small promise.</p>
+                    
+                    <div class="deal-ticket">
+                        <div class="ticket-row">
+                            <span>Development Cost:</span>
+                            <span class="cut-price">₹15,000</span>
+                        </div>
+                        <div class="ticket-row highlight">
+                            <span>Your Price:</span>
+                            <span class="free-text">FREE</span>
+                        </div>
+                        <hr style="border-color: #333; margin: 10px 0;">
+                        <p class="term-text">Required: <strong>1 Video Review</strong> after delivery.</p>
+                    </div>
+
+                    <label class="snow-checkbox">
+                        <input type="checkbox" id="agreeBox">
+                        <span>I promise to send a Video Review.</span>
+                    </label>
+
+                    <div class="btn-group">
+                        <button type="button" class="winter-btn-outline" onclick="showStep(2)">Back</button>
+                        <button type="button" onclick="submitWinterForm(this)" class="winter-btn finish-btn">CLAIM OFFER 🎁</button>
+                    </div>
+                    <p id="submit-loading" style="display:none; text-align:center; margin-top:10px; color:#00ffff; font-size:0.9rem;">
+                        Generating Order ID...
                     </p>
                 </div>
-                <button onclick="closeModal()" class="claim-btn">Awesome!</button>
-            </div>
+
+            </form>
         </div>
-
-        <form id="winter-form">
-            
-            <div class="step-progress">
-                <div class="step-dot active">1</div>
-                <div class="step-line"></div>
-                <div class="step-dot">2</div>
-                <div class="step-line"></div>
-                <div class="step-dot">3</div>
-            </div>
-
-            <div class="form-step active" id="step1">
-                <h3>Let's Connect ❄️</h3>
-                <p>Enter details to verify eligibility.</p>
-                
-                <div class="input-snow">
-                    <label>Full Name</label>
-                    <input type="text" id="fname" name="name" placeholder="Enter full name" required>
-                </div>
-
-                <div class="input-snow">
-                    <label>Email Address</label>
-                    <input type="email" id="femail" name="email" placeholder="name@example.com" required>
-                    <span class="error-msg" id="emailError">Invalid Email Address</span>
-                </div>
-
-                <div class="input-snow">
-                    <label>Phone Number (WhatsApp)</label>
-                    <input type="tel" id="fphone" name="phone" placeholder="9876543210" maxlength="10" required>
-                    <span class="error-msg" id="phoneError">Enter valid 10-digit number</span>
-                </div>
-
-                <button type="button" class="winter-btn" onclick="validateStep1()">Next Step ➔</button>
-            </div>
-
-            <div class="form-step" id="step2">
-                <h3>Your Vision 🚀</h3>
-                <p>What are we building today?</p>
-                
-                <div class="input-snow">
-                    <label>Project Type</label>
-                    <select name="category" required>
-                        <option value="Portfolio">Personal Portfolio</option>
-                        <option value="Business">Business Website</option>
-                        <option value="E-commerce">Small Shop / Store</option>
-                        <option value="Blogging">Blogging Site</option>
-                    </select>
-                </div>
-
-                <div class="input-snow">
-                    <label>Reference / Idea</label>
-                    <textarea name="message" placeholder="Describe your idea or paste a link..." rows="3" required></textarea>
-                </div>
-
-                <div class="btn-group">
-                    <button type="button" class="winter-btn-outline" onclick="showStep(1)">Back</button>
-                    <button type="button" class="winter-btn" onclick="showStep(3)">Next Step ➔</button>
-                </div>
-            </div>
-
-            <div class="form-step" id="step3">
-                <h3>Final Deal 🤝</h3>
-                <p>Zero Cost. Just one small promise.</p>
-                
-                <div class="deal-ticket">
-                    <div class="ticket-row">
-                        <span>Development Cost:</span>
-                        <span class="cut-price">₹15,000</span>
-                    </div>
-                    <div class="ticket-row highlight">
-                        <span>Your Price:</span>
-                        <span class="free-text">FREE</span>
-                    </div>
-                    <hr style="border-color: #333; margin: 10px 0;">
-                    <p class="term-text">Required: <strong>1 Video Review</strong> after delivery.</p>
-                </div>
-
-                <label class="snow-checkbox">
-                    <input type="checkbox" id="agreeBox">
-                    <span>I promise to send a Video Review.</span>
-                </label>
-
-                <div class="btn-group">
-                    <button type="button" class="winter-btn-outline" onclick="showStep(2)">Back</button>
-                    <button type="button" onclick="submitWinterForm(this)" class="winter-btn finish-btn">CLAIM OFFER 🎁</button>
-                </div>
-                <p id="submit-loading" style="display:none; text-align:center; margin-top:10px; color:#00ffff; font-size:0.9rem;">
-                    Generating Order ID...
-                </p>
-            </div>
-
-        </form>
     </div>
-</div>
+    
+    <style>
+        /* Scroll Bar Fix */
+        .scroll-progress {
+            position: fixed; top: 0; left: 0; width: 0%; height: 4px;
+            background: #00ffff !important; /* Force Cyan Color */
+            z-index: 999999; box-shadow: 0 0 10px #00ffff; transition: width 0.1s;
+        }
+        
+        /* Ripple Effect */
+        .ripple-btn { position: relative; overflow: hidden; }
+        .ripple {
+            position: absolute; border-radius: 50%; background: rgba(255,255,255,0.4);
+            transform: scale(0); animation: rippleAnim 0.6s linear; pointer-events: none;
+        }
+        @keyframes rippleAnim { to { transform: scale(4); opacity: 0; } }
+    </style>
+
+    <script>
+        // Scroll Bar Logic
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const bar = document.querySelector(".scroll-progress");
+            if(bar) bar.style.width = scrolled + "%";
+        });
+
+        // Ripple Logic
+        document.querySelectorAll('button, .btn, .winter-btn, .nav-menu a').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const x = e.clientX - e.target.getBoundingClientRect().left;
+                const y = e.clientY - e.target.getBoundingClientRect().top;
+                const ripples = document.createElement('span');
+                ripples.style.left = x + 'px'; ripples.style.top = y + 'px';
+                ripples.classList.add('ripple');
+                this.appendChild(ripples);
+                setTimeout(() => ripples.remove(), 600);
+            });
+        });
+        
+        // EmailJS Reload (Safety)
+        if(typeof emailjs !== 'undefined') emailjs.init("BrTwSa9S0SWqsPJI5");
+    </script>
 </body>
 </html>
